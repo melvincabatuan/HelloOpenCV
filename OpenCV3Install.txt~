@@ -1,0 +1,508 @@
+OpenCV 3.0 Install
+
+1. Remove previous ffmpeg installed
+
+$ sudo apt-get -y remove ffmpeg x264 libx264-dev
+sudo: unable to resolve host cobalt
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Package libx264-dev is not installed, so not removed
+Package x264 is not installed, so not removed
+Package ffmpeg is not installed, so not removed
+The following packages were automatically installed and are no longer required:
+  melt dvgrab kdenlive-data libmlt++3 libqjson0 recordmydesktop libmlt-data libmlt6
+Use 'apt-get autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 146 not upgraded.
+
+/* WEIRD... it didn't see my previous installs */
+
+2. Install ffmpeg using guide from
+https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu
+
+a. Install dependencies
+
+sudo apt-get -y install autoconf automake build-essential libass-dev libfreetype6-dev libgpac-dev \
+ libsdl1.2-dev libtheora-dev libtool libva-dev libvdpau-dev libvorbis-dev libx11-dev \
+ libxext-dev libxfixes-dev pkg-config texi2html zlib1g-dev
+
+$ git clone git://git.videolan.org/x264.git
+$ cd x264
+$ ./configure --enable-static --enable-shared
+$ make
+...
+$ sudo make install
+sudo: unable to resolve host cobalt
+install -d /usr/local/bin
+install x264 /usr/local/bin
+install -d /usr/local/include
+install -d /usr/local/lib
+install -d /usr/local/lib/pkgconfig
+install -m 644 ./x264.h /usr/local/include
+install -m 644 x264_config.h /usr/local/include
+install -m 644 x264.pc /usr/local/lib/pkgconfig
+ln -f -s libx264.so.142 /usr/local/lib/libx264.so
+install -m 755 libx264.so.142 /usr/local/lib
+install -m 644 libx264.a /usr/local/lib
+ranlib /usr/local/lib/libx264.a
+$ sudo ldconfig
+$ sudo make distclean
+
+
+$ git clone https://github.com/mstorsjo/fdk-aac.git
+$ cd fdk-aac
+$ autoreconf -fiv
+$ ./configure --prefix="$HOME/ffmpeg_build" --disable-shared
+$ make
+$ sudo make install
+make[1]: Entering directory `/home/cobalt/src/fdk-aac'
+test -z "/home/cobalt/ffmpeg_build/lib" || /bin/mkdir -p "/home/cobalt/ffmpeg_build/lib"
+ /bin/bash ./libtool   --mode=install /usr/bin/install -c   libfdk-aac.la '/home/cobalt/ffmpeg_build/lib'
+libtool: install: /usr/bin/install -c .libs/libfdk-aac.lai /home/cobalt/ffmpeg_build/lib/libfdk-aac.la
+libtool: install: /usr/bin/install -c .libs/libfdk-aac.a /home/cobalt/ffmpeg_build/lib/libfdk-aac.a
+libtool: install: chmod 644 /home/cobalt/ffmpeg_build/lib/libfdk-aac.a
+libtool: install: ranlib /home/cobalt/ffmpeg_build/lib/libfdk-aac.a
+libtool: finish: PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sbin" ldconfig -n /home/cobalt/ffmpeg_build/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/cobalt/ffmpeg_build/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+test -z "/home/cobalt/ffmpeg_build/bin" || /bin/mkdir -p "/home/cobalt/ffmpeg_build/bin"
+test -z "/home/cobalt/ffmpeg_build/include/fdk-aac" || /bin/mkdir -p "/home/cobalt/ffmpeg_build/include/fdk-aac"
+ /usr/bin/install -c -m 644 ./libSYS/include/machine_type.h ./libSYS/include/genericStds.h ./libSYS/include/FDK_audio.h ./libAACenc/include/aacenc_lib.h ./libAACdec/include/aacdecoder_lib.h '/home/cobalt/ffmpeg_build/include/fdk-aac'
+test -z "/home/cobalt/ffmpeg_build/lib/pkgconfig" || /bin/mkdir -p "/home/cobalt/ffmpeg_build/lib/pkgconfig"
+ /usr/bin/install -c -m 644 fdk-aac.pc '/home/cobalt/ffmpeg_build/lib/pkgconfig'
+make[1]: Leaving directory `/home/cobalt/src/fdk-aac
+
+$ sudo make distclean
+$ sudo ldconfig
+
+
+
+
+$ wget http://downloads.sourceforge.net/project/lame/lame/3.99/lame-3.99.5.tar.gz
+$ tar xzvf lame-3.99.5.tar.gz
+$ cd lame-3.99.5
+$ ./configure --prefix="$HOME/ffmpeg_build" --enable-nasm --disable-shared
+$ make
+$ sudo make install
+$ sudo make distclean
+
+
+$ wget http://downloads.xiph.org/releases/opus/opus-1.1.tar.gz
+$ tar xzvf opus-1.1.tar.gz
+$ cd opus-1.1
+$ ./configure --prefix="$HOME/ffmpeg_build" --disable-shared
+$ make
+$ sudo make install
+make  install-recursive
+make[1]: Entering directory `/home/cobalt/src/lame-3.99.5/opus-1.1'
+make[2]: Entering directory `/home/cobalt/src/lame-3.99.5/opus-1.1'
+make[3]: Entering directory `/home/cobalt/src/lame-3.99.5/opus-1.1/doc'
+make[3]: Nothing to be done for `all'.
+make[3]: Leaving directory `/home/cobalt/src/lame-3.99.5/opus-1.1/doc'
+make[3]: Entering directory `/home/cobalt/src/lame-3.99.5/opus-1.1'
+ /bin/mkdir -p '/home/cobalt/ffmpeg_build/lib'
+ /bin/bash ./libtool   --mode=install /usr/bin/install -c   libopus.la '/home/cobalt/ffmpeg_build/lib'
+libtool: install: /usr/bin/install -c .libs/libopus.lai /home/cobalt/ffmpeg_build/lib/libopus.la
+libtool: install: /usr/bin/install -c .libs/libopus.a /home/cobalt/ffmpeg_build/lib/libopus.a
+libtool: install: chmod 644 /home/cobalt/ffmpeg_build/lib/libopus.a
+libtool: install: ranlib /home/cobalt/ffmpeg_build/lib/libopus.a
+libtool: finish: PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/sbin" ldconfig -n /home/cobalt/ffmpeg_build/lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /home/cobalt/ffmpeg_build/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[4]: Entering directory `/home/cobalt/src/lame-3.99.5/opus-1.1/doc'
+make[5]: Entering directory `/home/cobalt/src/lame-3.99.5/opus-1.1/doc'
+make[5]: Nothing to be done for `install-exec-am'.
+/usr/bin/install -c -d /home/cobalt/ffmpeg_build/share/doc/opus/html/search
+for f in `find html -type f \! -name "installdox"`; do	\
+		/usr/bin/install -c -m 644 $f /home/cobalt/ffmpeg_build/share/doc/opus/$f;	\
+	done
+/usr/bin/install -c -d /home/cobalt/ffmpeg_build/share/man/man3
+cd man && find man3 -type f -name opus_*.3 \
+		  -exec /usr/bin/install -c -m 644 \{} /home/cobalt/ffmpeg_build/share/man/man3 \;
+make[5]: Leaving directory `/home/cobalt/src/lame-3.99.5/opus-1.1/doc'
+make[4]: Leaving directory `/home/cobalt/src/lame-3.99.5/opus-1.1/doc'
+ /bin/mkdir -p '/home/cobalt/ffmpeg_build/share/aclocal'
+ /usr/bin/install -c -m 644 opus.m4 '/home/cobalt/ffmpeg_build/share/aclocal'
+ /bin/mkdir -p '/home/cobalt/ffmpeg_build/lib/pkgconfig'
+ /usr/bin/install -c -m 644 opus.pc '/home/cobalt/ffmpeg_build/lib/pkgconfig'
+ /bin/mkdir -p '/home/cobalt/ffmpeg_build/include/opus'
+ /usr/bin/install -c -m 644 include/opus.h include/opus_multistream.h include/opus_types.h include/opus_defines.h '/home/cobalt/ffmpeg_build/include/opus'
+make[3]: Leaving directory `/home/cobalt/src/lame-3.99.5/opus-1.1'
+make[2]: Leaving directory `/home/cobalt/src/lame-3.99.5/opus-1.1'
+make[1]: Leaving directory `/home/cobalt/src/lame-3.99.5/opus-1.1'
+$ sudo make distclean
+
+
+$ wget http://webm.googlecode.com/files/libvpx-v1.3.0.tar.bz2
+$ tar xjvf libvpx-v1.3.0.tar.bz2
+$ cd libvpx-v1.3.0
+$ PATH="$HOME/bin:$PATH" ./configure --prefix="$HOME/ffmpeg_build" --disable-examples
+$ PATH="$HOME/bin:$PATH" make
+$ sudo make install
+$ make clean
+
+$ cd xvidcore-1.3.3/build/generic/
+$ ./configure --prefix="$HOME/ffmpeg_build"
+$ make
+$ sudo make install
+sudo: unable to resolve host cobalt
+[sudo] password for cobalt: 
+  D: /home/cobalt/ffmpeg_build/include
+  I: /home/cobalt/ffmpeg_build/include/xvid.h
+  D: /home/cobalt/ffmpeg_build/lib
+  I: /home/cobalt/ffmpeg_build/lib/libxvidcore.a
+  I: /home/cobalt/ffmpeg_build/lib/libxvidcore.so.4.3
+
+
+
+
+
+$ git clone git://source.ffmpeg.org/ffmpeg.git ffmpeg 
+$ cd ffmpeg
+$ PATH="$HOME/bin:$PATH" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH" ./configure \
+  --prefix="$HOME/ffmpeg_build" \
+  --extra-cflags="-I$HOME/ffmpeg_build/include" \
+  --extra-ldflags="-L$HOME/ffmpeg_build/lib" \
+  --bindir="$HOME/bin" \
+  --enable-gpl \
+  --enable-libass \
+  --enable-libfdk-aac \
+  --enable-libfreetype \
+  --enable-libmp3lame \
+  --enable-libopus \
+  --enable-libtheora \
+  --enable-libvorbis \
+  --enable-libvpx \
+  --enable-libx264 \
+  --enable-nonfree \
+  --enable-x11grab \
+  --enable-libfaac \
+  --enable-libopencore-amrnb \
+  --enable-libopencore-amrwb \
+  --enable-libxvid \
+  --enable-postproc \
+  --enable-version3 \
+  --enable-shared \
+  --enable-pic
+$ PATH="$HOME/bin:$PATH" make
+$ sudo make install
+$ sudo make install
+INSTALL	doc/ffmpeg.html
+INSTALL	doc/ffplay.html
+INSTALL	doc/ffprobe.html
+INSTALL	doc/ffserver.html
+INSTALL	doc/ffmpeg-all.html
+INSTALL	doc/ffplay-all.html
+INSTALL	doc/ffprobe-all.html
+INSTALL	doc/ffserver-all.html
+INSTALL	doc/ffmpeg-utils.html
+INSTALL	doc/ffmpeg-scaler.html
+INSTALL	doc/ffmpeg-resampler.html
+INSTALL	doc/ffmpeg-codecs.html
+INSTALL	doc/ffmpeg-bitstream-filters.html
+INSTALL	doc/ffmpeg-formats.html
+INSTALL	doc/ffmpeg-protocols.html
+INSTALL	doc/ffmpeg-devices.html
+INSTALL	doc/ffmpeg-filters.html
+INSTALL	doc/libavutil.html
+INSTALL	doc/libswscale.html
+INSTALL	doc/libswresample.html
+INSTALL	doc/libavcodec.html
+INSTALL	doc/libavformat.html
+INSTALL	doc/libavdevice.html
+INSTALL	doc/libavfilter.html
+INSTALL	doc/developer.html
+INSTALL	doc/faq.html
+INSTALL	doc/fate.html
+INSTALL	doc/general.html
+INSTALL	doc/git-howto.html
+INSTALL	doc/nut.html
+INSTALL	doc/platform.html
+INSTALL	doc/ffmpeg.1
+INSTALL	doc/ffplay.1
+INSTALL	doc/ffprobe.1
+INSTALL	doc/ffserver.1
+INSTALL	doc/ffmpeg-all.1
+INSTALL	doc/ffplay-all.1
+INSTALL	doc/ffprobe-all.1
+INSTALL	doc/ffserver-all.1
+INSTALL	doc/ffmpeg-utils.1
+INSTALL	doc/ffmpeg-scaler.1
+INSTALL	doc/ffmpeg-resampler.1
+INSTALL	doc/ffmpeg-codecs.1
+INSTALL	doc/ffmpeg-bitstream-filters.1
+INSTALL	doc/ffmpeg-formats.1
+INSTALL	doc/ffmpeg-protocols.1
+INSTALL	doc/ffmpeg-devices.1
+INSTALL	doc/ffmpeg-filters.1
+INSTALL	doc/libavutil.3
+INSTALL	doc/libswscale.3
+INSTALL	doc/libswresample.3
+INSTALL	doc/libavcodec.3
+INSTALL	doc/libavformat.3
+INSTALL	doc/libavdevice.3
+INSTALL	doc/libavfilter.3
+INSTALL	doc/ffmpeg.1
+INSTALL	doc/ffplay.1
+INSTALL	doc/ffprobe.1
+INSTALL	doc/ffserver.1
+INSTALL	doc/ffmpeg-all.1
+INSTALL	doc/ffplay-all.1
+INSTALL	doc/ffprobe-all.1
+INSTALL	doc/ffserver-all.1
+INSTALL	doc/ffmpeg-utils.1
+INSTALL	doc/ffmpeg-scaler.1
+INSTALL	doc/ffmpeg-resampler.1
+INSTALL	doc/ffmpeg-codecs.1
+INSTALL	doc/ffmpeg-bitstream-filters.1
+INSTALL	doc/ffmpeg-formats.1
+INSTALL	doc/ffmpeg-protocols.1
+INSTALL	doc/ffmpeg-devices.1
+INSTALL	doc/ffmpeg-filters.1
+INSTALL	doc/libavutil.3
+INSTALL	doc/libswscale.3
+INSTALL	doc/libswresample.3
+INSTALL	doc/libavcodec.3
+INSTALL	doc/libavformat.3
+INSTALL	doc/libavdevice.3
+INSTALL	doc/libavfilter.3
+INSTALL	libavdevice/libavdevice.a
+INSTALL	libavdevice/libavdevice.so
+STRIP	install-libavdevice-shared
+INSTALL	libavfilter/libavfilter.a
+INSTALL	libavfilter/libavfilter.so
+STRIP	install-libavfilter-shared
+INSTALL	libavformat/libavformat.a
+INSTALL	libavformat/libavformat.so
+STRIP	install-libavformat-shared
+INSTALL	libavcodec/libavcodec.a
+INSTALL	libavcodec/libavcodec.so
+STRIP	install-libavcodec-shared
+INSTALL	libpostproc/libpostproc.a
+INSTALL	libpostproc/libpostproc.so
+STRIP	install-libpostproc-shared
+INSTALL	libswresample/libswresample.a
+INSTALL	libswresample/libswresample.so
+STRIP	install-libswresample-shared
+INSTALL	libswscale/libswscale.a
+INSTALL	libswscale/libswscale.so
+STRIP	install-libswscale-shared
+INSTALL	libavutil/libavutil.a
+INSTALL	libavutil/libavutil.so
+STRIP	install-libavutil-shared
+INSTALL	install-progs-yes
+INSTALL	ffmpeg
+INSTALL	ffplay
+INSTALL	ffprobe
+INSTALL	ffserver
+INSTALL	presets/libvpx-1080p50_60.ffpreset
+INSTALL	presets/libvpx-1080p.ffpreset
+INSTALL	presets/libvpx-360p.ffpreset
+INSTALL	presets/libvpx-720p50_60.ffpreset
+INSTALL	presets/libvpx-720p.ffpreset
+INSTALL	doc/ffprobe.xsd
+INSTALL	doc/examples/avio_reading.c
+INSTALL	doc/examples/decoding_encoding.c
+INSTALL	doc/examples/demuxing_decoding.c
+INSTALL	doc/examples/extract_mvs.c
+INSTALL	doc/examples/filter_audio.c
+INSTALL	doc/examples/filtering_audio.c
+INSTALL	doc/examples/filtering_video.c
+INSTALL	doc/examples/metadata.c
+INSTALL	doc/examples/muxing.c
+INSTALL	doc/examples/remuxing.c
+INSTALL	doc/examples/resampling_audio.c
+INSTALL	doc/examples/scaling_video.c
+INSTALL	doc/examples/transcode_aac.c
+INSTALL	doc/examples/transcoding.c
+INSTALL	doc/examples/Makefile
+INSTALL	doc/examples/README
+INSTALL	presets/libvpx-1080p50_60.ffpreset
+INSTALL	presets/libvpx-1080p.ffpreset
+INSTALL	presets/libvpx-360p.ffpreset
+INSTALL	presets/libvpx-720p50_60.ffpreset
+INSTALL	presets/libvpx-720p.ffpreset
+INSTALL	doc/ffprobe.xsd
+INSTALL	doc/examples/avio_reading.c
+INSTALL	doc/examples/decoding_encoding.c
+INSTALL	doc/examples/demuxing_decoding.c
+INSTALL	doc/examples/extract_mvs.c
+INSTALL	doc/examples/filter_audio.c
+INSTALL	doc/examples/filtering_audio.c
+INSTALL	doc/examples/filtering_video.c
+INSTALL	doc/examples/metadata.c
+INSTALL	doc/examples/muxing.c
+INSTALL	doc/examples/remuxing.c
+INSTALL	doc/examples/resampling_audio.c
+INSTALL	doc/examples/scaling_video.c
+INSTALL	doc/examples/transcode_aac.c
+INSTALL	doc/examples/transcoding.c
+INSTALL	doc/examples/Makefile
+INSTALL	doc/examples/README
+INSTALL	libavdevice/avdevice.h
+INSTALL	libavdevice/version.h
+INSTALL	libavdevice/libavdevice.pc
+INSTALL	libavfilter/asrc_abuffer.h
+INSTALL	libavfilter/avcodec.h
+INSTALL	libavfilter/avfilter.h
+INSTALL	libavfilter/avfiltergraph.h
+INSTALL	libavfilter/buffersink.h
+INSTALL	libavfilter/buffersrc.h
+INSTALL	libavfilter/version.h
+INSTALL	libavfilter/libavfilter.pc
+INSTALL	libavformat/avformat.h
+INSTALL	libavformat/avio.h
+INSTALL	libavformat/version.h
+INSTALL	libavformat/libavformat.pc
+INSTALL	libavcodec/avcodec.h
+INSTALL	libavcodec/avfft.h
+INSTALL	libavcodec/dv_profile.h
+INSTALL	libavcodec/dxva2.h
+INSTALL	libavcodec/old_codec_ids.h
+INSTALL	libavcodec/vaapi.h
+INSTALL	libavcodec/vda.h
+INSTALL	libavcodec/vdpau.h
+INSTALL	libavcodec/version.h
+INSTALL	libavcodec/vorbis_parser.h
+INSTALL	libavcodec/xvmc.h
+INSTALL	libavcodec/libavcodec.pc
+INSTALL	libpostproc/postprocess.h
+INSTALL	libpostproc/version.h
+INSTALL	libpostproc/libpostproc.pc
+INSTALL	libswresample/swresample.h
+INSTALL	libswresample/version.h
+INSTALL	libswresample/libswresample.pc
+INSTALL	libswscale/swscale.h
+INSTALL	libswscale/version.h
+INSTALL	libswscale/libswscale.pc
+INSTALL	libavutil/adler32.h
+INSTALL	libavutil/aes.h
+INSTALL	libavutil/attributes.h
+INSTALL	libavutil/audio_fifo.h
+INSTALL	libavutil/audioconvert.h
+INSTALL	libavutil/avassert.h
+INSTALL	libavutil/avstring.h
+INSTALL	libavutil/avutil.h
+INSTALL	libavutil/base64.h
+INSTALL	libavutil/blowfish.h
+INSTALL	libavutil/bprint.h
+INSTALL	libavutil/bswap.h
+INSTALL	libavutil/buffer.h
+INSTALL	libavutil/cast5.h
+INSTALL	libavutil/channel_layout.h
+INSTALL	libavutil/common.h
+INSTALL	libavutil/cpu.h
+INSTALL	libavutil/crc.h
+INSTALL	libavutil/display.h
+INSTALL	libavutil/downmix_info.h
+INSTALL	libavutil/error.h
+INSTALL	libavutil/eval.h
+INSTALL	libavutil/fifo.h
+INSTALL	libavutil/file.h
+INSTALL	libavutil/frame.h
+INSTALL	libavutil/hash.h
+INSTALL	libavutil/hmac.h
+INSTALL	libavutil/imgutils.h
+INSTALL	libavutil/intfloat.h
+INSTALL	libavutil/intreadwrite.h
+INSTALL	libavutil/lfg.h
+INSTALL	libavutil/log.h
+INSTALL	libavutil/macros.h
+INSTALL	libavutil/mathematics.h
+INSTALL	libavutil/md5.h
+INSTALL	libavutil/mem.h
+INSTALL	libavutil/motion_vector.h
+INSTALL	libavutil/murmur3.h
+INSTALL	libavutil/dict.h
+INSTALL	libavutil/old_pix_fmts.h
+INSTALL	libavutil/opt.h
+INSTALL	libavutil/parseutils.h
+INSTALL	libavutil/pixdesc.h
+INSTALL	libavutil/pixelutils.h
+INSTALL	libavutil/pixfmt.h
+INSTALL	libavutil/random_seed.h
+INSTALL	libavutil/replaygain.h
+INSTALL	libavutil/rational.h
+INSTALL	libavutil/ripemd.h
+INSTALL	libavutil/samplefmt.h
+INSTALL	libavutil/sha.h
+INSTALL	libavutil/sha512.h
+INSTALL	libavutil/stereo3d.h
+INSTALL	libavutil/threadmessage.h
+INSTALL	libavutil/time.h
+INSTALL	libavutil/timecode.h
+INSTALL	libavutil/timestamp.h
+INSTALL	libavutil/version.h
+INSTALL	libavutil/xtea.h
+INSTALL	libavutil/lzo.h
+INSTALL	libavutil/avconfig.h
+INSTALL	libavutil/ffversion.h
+INSTALL	libavutil/libavutil.pc
+
+$ sudo make distclean
+
+
+
+
+# Double check Dependencies
+sudo apt-get -y install libopencv-dev
+sudo apt-get -y install build-essential checkinstall cmake pkg-config yasm
+sudo apt-get -y install libtiff4-dev libjpeg-dev libjasper-dev
+sudo apt-get -y install libavcodec-dev libavformat-dev libswscale-dev libdc1394-22-dev libxine-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev libv4l-dev
+sudo apt-get -y install python-dev python-numpy
+sudo apt-get -y install libtbb-dev
+sudo apt-get -y install libqt4-dev libgtk2.0-dev
+sudo apt-get -y install libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev
+
+// FFMPEG
+
+sudo apt-get -y install libgtk2.0-dev
+
+cd opencv 
+mkdir build
+cd build
+cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_TBB=ON -D BUILD_NEW_PYTHON_SUPPORT=ON -D WITH_V4L=ON -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON -D BUILD_EXAMPLES=ON -D WITH_QT=ON -D WITH_OPENGL=ON -D WITH_IPP=OFF ..
+make -j4
+sudo make install
+sudo sh -c 'echo "/usr/local/lib" > /etc/ld.so.conf.d/opencv.conf'
+sudo ldconfig
+
+
+or
+
+ cd OpenCV<>  
+ mkdir build  
+ cd build  
+ cmake-gui 

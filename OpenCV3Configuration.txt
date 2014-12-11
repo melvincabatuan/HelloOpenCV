@@ -1,0 +1,136 @@
+-- General configuration for OpenCV 3.0.0-dev =====================================
+--   Version control:               3.0.0-alpha-884-g0a4c616
+-- 
+--   Platform:
+--     Host:                        Linux 3.5.0-27-generic i686
+--     CMake:                       2.8.12
+--     CMake generator:             Unix Makefiles
+--     CMake build tool:            /usr/bin/make
+--     Configuration:               RELEASE
+-- 
+--   C/C++:
+--     Built as dynamic libs?:      YES
+--     C++ Compiler:                /usr/bin/c++  (ver 4.8.1)
+--     C++ flags (Release):         -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wno-narrowing -Wno-delete-non-virtual-dtor -fdiagnostics-show-option -pthread -march=i686 -fomit-frame-pointer -msse -msse2 -msse3 -mfpmath=sse -ffunction-sections -fvisibility=hidden -fvisibility-inlines-hidden -O2 -DNDEBUG  -DNDEBUG
+--     C++ flags (Debug):           -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wno-narrowing -Wno-delete-non-virtual-dtor -fdiagnostics-show-option -pthread -march=i686 -fomit-frame-pointer -msse -msse2 -msse3 -mfpmath=sse -ffunction-sections -fvisibility=hidden -fvisibility-inlines-hidden -g  -O0 -DDEBUG -D_DEBUG
+--     C Compiler:                  /usr/bin/cc
+--     C flags (Release):           -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wno-narrowing -fdiagnostics-show-option -pthread -march=i686 -fomit-frame-pointer -msse -msse2 -msse3 -mfpmath=sse -ffunction-sections -fvisibility=hidden -O2 -DNDEBUG  -DNDEBUG
+--     C flags (Debug):             -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wno-narrowing -fdiagnostics-show-option -pthread -march=i686 -fomit-frame-pointer -msse -msse2 -msse3 -mfpmath=sse -ffunction-sections -fvisibility=hidden -g  -O0 -DDEBUG -D_DEBUG
+--     Linker flags (Release):      
+--     Linker flags (Debug):        
+--     Precompiled headers:         YES
+-- 
+--   OpenCV modules:
+--     To be built:                 core flann imgproc imgcodecs videoio highgui ml features2d calib3d objdetect photo video java shape stitching superres videostab viz python2 ts
+--     Disabled:                    world
+--     Disabled by dependency:      -
+--     Unavailable:                 androidcamera cuda cudaarithm cudabgsegm cudacodec cudafeatures2d cudafilters cudaimgproc cudalegacy cudaoptflow cudastereo cudawarping cudev python3
+-- 
+--   GUI: 
+--     QT 4.x:                      YES (ver 4.8.1 EDITION = OpenSource)
+--     QT OpenGL support:           YES (/usr/lib/i386-linux-gnu/libQtOpenGL.so)
+--     OpenGL support:              YES (/usr/lib/i386-linux-gnu/libGLU.so /usr/lib/i386-linux-gnu/libGL.so /usr/lib/i386-linux-gnu/libSM.so /usr/lib/i386-linux-gnu/libICE.so /usr/lib/i386-linux-gnu/libX11.so /usr/lib/i386-linux-gnu/libXext.so)
+--     VTK support:                 YES (ver 5.8.0)
+-- 
+--   Media I/O: 
+--     ZLib:                        /usr/lib/i386-linux-gnu/libz.so (ver 1.2.3.4)
+--     JPEG:                        /usr/lib/i386-linux-gnu/libjpeg.so (ver )
+--     WEBP:                        build (ver 0.3.1)
+--     PNG:                         /usr/lib/i386-linux-gnu/libpng.so (ver 1.2.46)
+--     TIFF:                        /usr/local/lib/libtiff.so (ver 42 - 4.0.3)
+--     JPEG 2000:                   /usr/lib/i386-linux-gnu/libjasper.so (ver 1.900.1)
+--     OpenEXR:                     /usr/lib/i386-linux-gnu/libImath.so /usr/lib/i386-linux-gnu/libIlmImf.so /usr/lib/i386-linux-gnu/libIex.so /usr/lib/i386-linux-gnu/libHalf.so /usr/lib/i386-linux-gnu/libIlmThread.so (ver 2.1.0)
+--     GDAL:                        NO
+-- 
+--   Video I/O:
+--     DC1394 1.x:                  NO
+--     DC1394 2.x:                  YES (ver 2.2.0)
+--     FFMPEG:                      YES
+--       codec:                     YES (ver 55.48.101)
+--       format:                    YES (ver 55.24.100)
+--       util:                      YES (ver 52.62.100)
+--       swscale:                   YES (ver 2.5.101)
+--       gentoo-style:              YES
+--     GStreamer:                   
+--       base:                      YES (ver 0.10.36)
+--       video:                     YES (ver 0.10.36)
+--       app:                       YES (ver 0.10.36)
+--       riff:                      YES (ver 0.10.36)
+--       pbutils:                   YES (ver 0.10.36)
+--     OpenNI:                      NO
+--     OpenNI PrimeSensor Modules:  NO
+--     OpenNI2:                     NO
+--     PvAPI:                       NO
+--     GigEVisionSDK:               NO
+--     UniCap:                      NO
+--     UniCap ucil:                 NO
+--     V4L/V4L2:                    Using libv4l (ver 1.0.1)
+--     XIMEA:                       NO
+--     Xine:                        NO
+-- 
+--   Other third-party libraries:
+--     Use IPP:                     8.2.1 [8.2.1]
+--          at:                     /home/cobalt/opencv/3rdparty/ippicv/unpack/ippicv_lnx
+--     Use IPP Async:               NO
+--     Use Eigen:                   YES (ver 3.0.5)
+--     Use TBB:                     YES (ver 4.0 interface 6000)
+--     Use OpenMP:                  NO
+--     Use GCD                      NO
+--     Use Concurrency              NO
+--     Use C=:                      NO
+--     Use Cuda:                    NO
+--     Use OpenCL:                  YES
+-- 
+--   OpenCL:
+--     Version:                     dynamic
+--     Include path:                /home/cobalt/opencv/3rdparty/include/opencl/1.2
+--     Use AMDFFT:                  NO
+--     Use AMDBLAS:                 NO
+-- 
+--   Python 2:
+--     Interpreter:                 /usr/bin/python2.7 (ver 2.7.3)
+--     Libraries:                   /usr/lib/libpython2.7.so (ver 2.7.3)
+--     numpy:                       /usr/lib/python2.7/dist-packages/numpy/core/include (ver 1.6.1)
+--     packages path:               lib/python2.7/dist-packages
+-- 
+--   Python 3:
+--     Interpreter:                 /usr/local/bin/python3.4 (ver 3.4.1)
+-- 
+--   Python (for build):            /usr/bin/python2.7
+-- 
+--   Java:
+--     ant:                         /home/cobalt/src/apache-ant-1.9.2/bin/ant (ver 1.9.2)
+--     JNI:                         /usr/lib/jvm/java-7-oracle/include /usr/lib/jvm/java-7-oracle/include/linux /usr/lib/jvm/java-7-oracle/include
+--     Java wrappers:               YES
+--     Java tests:                  YES
+-- 
+--   Matlab:
+--     mex:                         NO
+-- 
+--   Documentation:
+--     Build Documentation:         YES
+--     Sphinx:                      /usr/bin/sphinx-build (ver 1.1.3)
+--     PdfLaTeX compiler:           /usr/bin/pdflatex
+--     PlantUML:                    NO
+--     Doxygen:                     YES (/usr/bin/doxygen)
+-- 
+--   Tests and samples:
+--     Tests:                       YES
+--     Performance tests:           YES
+--     C/C++ Examples:              YES
+-- 
+--   Install path:                  /usr/local
+-- 
+--   cvconfig.h is in:              /home/cobalt/opencv/build
+-- -----------------------------------------------------------------
+-- 
+-- Configuring done
+-- Generating done
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    BUILD_NEW_PYTHON_SUPPORT
+
+
+-- Build files have been written to: /home/cobalt/opencv/build
+

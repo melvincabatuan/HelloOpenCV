@@ -1,0 +1,2110 @@
+-- General configuration for OpenCV 3.0.0-dev =====================================
+--   Version control:               3.0.0-alpha-886-g0f7721e
+-- 
+--   Platform:
+--     Host:                        Linux 3.5.0-27-generic i686
+--     CMake:                       2.8.12
+--     CMake generator:             Unix Makefiles
+--     CMake build tool:            /usr/bin/make
+--     Configuration:               RELEASE
+-- 
+--   C/C++:
+--     Built as dynamic libs?:      YES
+--     C++ Compiler:                /usr/bin/c++  (ver 4.8.1)
+--     C++ flags (Release):         -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wno-narrowing -Wno-delete-non-virtual-dtor -fdiagnostics-show-option -pthread -march=i686 -fomit-frame-pointer -msse -msse2 -msse3 -mfpmath=sse -ffunction-sections -fvisibility=hidden -fvisibility-inlines-hidden -O2 -DNDEBUG  -DNDEBUG
+--     C++ flags (Debug):           -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wundef -Winit-self -Wpointer-arith -Wshadow -Wsign-promo -Wno-narrowing -Wno-delete-non-virtual-dtor -fdiagnostics-show-option -pthread -march=i686 -fomit-frame-pointer -msse -msse2 -msse3 -mfpmath=sse -ffunction-sections -fvisibility=hidden -fvisibility-inlines-hidden -g  -O0 -DDEBUG -D_DEBUG
+--     C Compiler:                  /usr/bin/cc
+--     C flags (Release):           -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wno-narrowing -fdiagnostics-show-option -pthread -march=i686 -fomit-frame-pointer -msse -msse2 -msse3 -mfpmath=sse -ffunction-sections -fvisibility=hidden -O2 -DNDEBUG  -DNDEBUG
+--     C flags (Debug):             -fsigned-char -W -Wall -Werror=return-type -Werror=non-virtual-dtor -Werror=address -Werror=sequence-point -Wformat -Werror=format-security -Wmissing-declarations -Wmissing-prototypes -Wstrict-prototypes -Wundef -Winit-self -Wpointer-arith -Wshadow -Wno-narrowing -fdiagnostics-show-option -pthread -march=i686 -fomit-frame-pointer -msse -msse2 -msse3 -mfpmath=sse -ffunction-sections -fvisibility=hidden -g  -O0 -DDEBUG -D_DEBUG
+--     Linker flags (Release):      
+--     Linker flags (Debug):        
+--     Precompiled headers:         YES
+-- 
+--   OpenCV modules:
+--     To be built:                 core flann imgproc imgcodecs videoio highgui ml features2d calib3d objdetect photo video java shape stitching superres videostab viz python2 ts
+--     Disabled:                    world
+--     Disabled by dependency:      -
+--     Unavailable:                 androidcamera cuda cudaarithm cudabgsegm cudacodec cudafeatures2d cudafilters cudaimgproc cudalegacy cudaoptflow cudastereo cudawarping cudev python3
+-- 
+--   GUI: 
+--     QT 4.x:                      YES (ver 4.8.1 EDITION = OpenSource)
+--     QT OpenGL support:           YES (/usr/lib/i386-linux-gnu/libQtOpenGL.so)
+--     OpenGL support:              YES (/usr/lib/i386-linux-gnu/libGLU.so /usr/lib/i386-linux-gnu/libGL.so /usr/lib/i386-linux-gnu/libSM.so /usr/lib/i386-linux-gnu/libICE.so /usr/lib/i386-linux-gnu/libX11.so /usr/lib/i386-linux-gnu/libXext.so)
+--     VTK support:                 YES (ver 5.8.0)
+-- 
+--   Media I/O: 
+--     ZLib:                        /usr/lib/i386-linux-gnu/libz.so (ver 1.2.3.4)
+--     JPEG:                        /usr/lib/i386-linux-gnu/libjpeg.so (ver )
+--     WEBP:                        build (ver 0.3.1)
+--     PNG:                         /usr/lib/i386-linux-gnu/libpng.so (ver 1.2.46)
+--     TIFF:                        /usr/local/lib/libtiff.so (ver 42 - 4.0.3)
+--     JPEG 2000:                   /usr/lib/i386-linux-gnu/libjasper.so (ver 1.900.1)
+--     OpenEXR:                     /usr/lib/i386-linux-gnu/libImath.so /usr/lib/i386-linux-gnu/libIlmImf.so /usr/lib/i386-linux-gnu/libIex.so /usr/lib/i386-linux-gnu/libHalf.so /usr/lib/i386-linux-gnu/libIlmThread.so (ver 2.1.0)
+--     GDAL:                        NO
+-- 
+--   Video I/O:
+--     DC1394 1.x:                  NO
+--     DC1394 2.x:                  YES (ver 2.2.0)
+--     FFMPEG:                      YES
+--       codec:                     YES (ver 56.14.100)
+--       format:                    YES (ver 56.15.103)
+--       util:                      YES (ver 54.15.100)
+--       swscale:                   YES (ver 3.1.101)
+--       gentoo-style:              YES
+--     GStreamer:                   
+--       base:                      YES (ver 1.4.4)
+--       video:                     YES (ver 1.4.4)
+--       app:                       YES (ver 1.4.4)
+--       riff:                      YES (ver 1.4.4)
+--       pbutils:                   YES (ver 1.4.4)
+--     OpenNI:                      NO
+--     OpenNI PrimeSensor Modules:  NO
+--     OpenNI2:                     NO
+--     PvAPI:                       NO
+--     GigEVisionSDK:               NO
+--     UniCap:                      NO
+--     UniCap ucil:                 NO
+--     V4L/V4L2:                    Using libv4l (ver 1.0.1)
+--     XIMEA:                       NO
+--     Xine:                        NO
+-- 
+--   Other third-party libraries:
+--     Use IPP:                     NO
+--     Use IPP Async:               NO
+--     Use Eigen:                   YES (ver 3.0.5)
+--     Use TBB:                     YES (ver 4.0 interface 6000)
+--     Use OpenMP:                  NO
+--     Use GCD                      NO
+--     Use Concurrency              NO
+--     Use C=:                      NO
+--     Use Cuda:                    NO
+--     Use OpenCL:                  YES
+-- 
+--   OpenCL:
+--     Version:                     dynamic
+--     Include path:                /home/cobalt/opencv/3rdparty/include/opencl/1.2
+--     Use AMDFFT:                  NO
+--     Use AMDBLAS:                 NO
+-- 
+--   Python 2:
+--     Interpreter:                 /usr/bin/python2.7 (ver 2.7.3)
+--     Libraries:                   /usr/lib/libpython2.7.so (ver 2.7.3)
+--     numpy:                       /usr/lib/python2.7/dist-packages/numpy/core/include (ver 1.6.1)
+--     packages path:               lib/python2.7/dist-packages
+-- 
+--   Python 3:
+--     Interpreter:                 /usr/local/bin/python3.4 (ver 3.4.1)
+-- 
+--   Python (for build):            /usr/bin/python2.7
+-- 
+--   Java:
+--     ant:                         /home/cobalt/src/apache-ant-1.9.2/bin/ant (ver 1.9.2)
+--     JNI:                         /usr/lib/jvm/java-7-oracle/include /usr/lib/jvm/java-7-oracle/include/linux /usr/lib/jvm/java-7-oracle/include
+--     Java wrappers:               YES
+--     Java tests:                  YES
+-- 
+--   Matlab:
+--     mex:                         NO
+-- 
+--   Documentation:
+--     Build Documentation:         YES
+--     Sphinx:                      /usr/bin/sphinx-build (ver 1.1.3)
+--     PdfLaTeX compiler:           /usr/bin/pdflatex
+--     PlantUML:                    NO
+--     Doxygen:                     YES (/usr/bin/doxygen)
+-- 
+--   Tests and samples:
+--     Tests:                       YES
+--     Performance tests:           YES
+--     C/C++ Examples:              YES
+-- 
+--   Install path:                  /usr/local
+-- 
+--   cvconfig.h is in:              /home/cobalt/opencv/build
+-- -----------------------------------------------------------------
+-- 
+-- Configuring done
+-- Generating done
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    BUILD_NEW_PYTHON_SUPPORT
+
+
+-- Build files have been written to: /home/cobalt/opencv/build
+PhD:~/opencv/build$ make -j4
+[  0%] [  0%] Generating opencv_core_pch_dephelp.cxx
+[  0%] Generating opencv_ts_pch_dephelp.cxx
+Scanning dependencies of target libwebp
+Generating opencv_imgproc_pch_dephelp.cxx
+Scanning dependencies of target opencv_core_pch_dephelp
+Scanning dependencies of target opencv_ts_pch_dephelp
+Scanning dependencies of target opencv_imgproc_pch_dephelp
+[  0%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/dec/buffer.c.o
+[  0%] [  0%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc_pch_dephelp.dir/opencv_imgproc_pch_dephelp.cxx.o
+Building CXX object modules/core/CMakeFiles/opencv_core_pch_dephelp.dir/opencv_core_pch_dephelp.cxx.o
+[  0%] Building CXX object modules/ts/CMakeFiles/opencv_ts_pch_dephelp.dir/opencv_ts_pch_dephelp.cxx.o
+[  0%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/dec/quant.c.o
+[  0%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/dec/layer.c.o
+[  0%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/dec/frame.c.o
+[  0%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/dec/io.c.o
+[  0%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/dec/vp8l.c.o
+[  0%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/dec/alpha.c.o
+[  0%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/dec/webp.c.o
+Linking CXX static library ../../lib/libopencv_core_pch_dephelp.a
+[  0%] Built target opencv_core_pch_dephelp
+[  0%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/dec/tree.c.o
+Linking CXX static library ../../lib/libopencv_imgproc_pch_dephelp.a
+[  0%] Built target opencv_imgproc_pch_dephelp
+[  0%] Generating opencv_imgcodecs_pch_dephelp.cxx
+Scanning dependencies of target opencv_imgcodecs_pch_dephelp
+[  0%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs_pch_dephelp.dir/opencv_imgcodecs_pch_dephelp.cxx.o
+[  0%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/dec/vp8.c.o
+[  0%] Generating opencv_videoio_pch_dephelp.cxx
+Scanning dependencies of target opencv_videoio_pch_dephelp
+[  0%] Building CXX object modules/videoio/CMakeFiles/opencv_videoio_pch_dephelp.dir/opencv_videoio_pch_dephelp.cxx.o
+Linking CXX static library ../../lib/libopencv_ts_pch_dephelp.a
+[  0%] Built target opencv_ts_pch_dephelp
+[  0%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/dec/idec.c.o
+[  0%] Generating opencv_highgui_pch_dephelp.cxx
+[  0%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/dsp/upsampling_sse2.c.o
+Scanning dependencies of target opencv_highgui_pch_dephelp
+[  0%] Building CXX object modules/highgui/CMakeFiles/opencv_highgui_pch_dephelp.dir/opencv_highgui_pch_dephelp.cxx.o
+[  0%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/dsp/dec_neon.c.o
+[  0%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/dsp/lossless.c.o
+Linking CXX static library ../../lib/libopencv_imgcodecs_pch_dephelp.a
+[  0%] Built target opencv_imgcodecs_pch_dephelp
+[  0%] Generating opencv_perf_core_pch_dephelp.cxx
+Scanning dependencies of target opencv_perf_core_pch_dephelp
+[  0%] Building CXX object modules/core/CMakeFiles/opencv_perf_core_pch_dephelp.dir/opencv_perf_core_pch_dephelp.cxx.o
+Linking CXX static library ../../lib/libopencv_videoio_pch_dephelp.a
+[  0%] Built target opencv_videoio_pch_dephelp
+[  0%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/dsp/enc_neon.c.o
+[  0%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/dsp/enc.c.o
+[  0%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/dsp/dec_sse2.c.o
+[  0%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/dsp/dec.c.o
+Linking CXX static library ../../lib/libopencv_highgui_pch_dephelp.a
+[  0%] Built target opencv_highgui_pch_dephelp
+[  0%] Generating opencv_test_core_pch_dephelp.cxx
+Scanning dependencies of target opencv_test_core_pch_dephelp
+[  0%] Building CXX object modules/core/CMakeFiles/opencv_test_core_pch_dephelp.dir/opencv_test_core_pch_dephelp.cxx.o
+[  0%] Generating opencv_flann_pch_dephelp.cxx
+Scanning dependencies of target opencv_flann_pch_dephelp
+[  0%] Building CXX object modules/flann/CMakeFiles/opencv_flann_pch_dephelp.dir/opencv_flann_pch_dephelp.cxx.o
+Linking CXX static library ../../lib/libopencv_perf_core_pch_dephelp.a
+[  0%] Built target opencv_perf_core_pch_dephelp
+[  0%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/dsp/yuv.c.o
+[  0%] Generating opencv_test_flann_pch_dephelp.cxx
+Scanning dependencies of target opencv_test_flann_pch_dephelp
+[  0%] Building CXX object modules/flann/CMakeFiles/opencv_test_flann_pch_dephelp.dir/opencv_test_flann_pch_dephelp.cxx.o
+[  0%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/dsp/cpu.c.o
+[  0%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/dsp/upsampling.c.o
+[  0%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/dsp/upsampling_neon.c.o
+[  0%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/dsp/enc_sse2.c.o
+Linking CXX static library ../../lib/libopencv_test_core_pch_dephelp.a
+[  0%] Built target opencv_test_core_pch_dephelp
+[  0%] Generating opencv_perf_imgproc_pch_dephelp.cxx
+Scanning dependencies of target opencv_perf_imgproc_pch_dephelp
+[  0%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc_pch_dephelp.dir/opencv_perf_imgproc_pch_dephelp.cxx.o
+[  0%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/enc/analysis.c.o
+Linking CXX static library ../../lib/libopencv_flann_pch_dephelp.a
+[  0%] Built target opencv_flann_pch_dephelp
+[  0%] Generating opencv_test_imgproc_pch_dephelp.cxx
+Scanning dependencies of target opencv_test_imgproc_pch_dephelp
+[  4%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/enc/cost.c.o
+Linking CXX static library ../../lib/libopencv_test_flann_pch_dephelp.a
+[  4%] [  4%] Built target opencv_test_flann_pch_dephelp
+[  4%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc_pch_dephelp.dir/opencv_test_imgproc_pch_dephelp.cxx.o
+Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/enc/token.c.o
+[  4%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/enc/histogram.c.o
+[  8%] Generating opencv_perf_imgcodecs_pch_dephelp.cxx
+Scanning dependencies of target opencv_perf_imgcodecs_pch_dephelp
+[  8%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_perf_imgcodecs_pch_dephelp.dir/opencv_perf_imgcodecs_pch_dephelp.cxx.o
+[  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/enc/webpenc.c.o
+[  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/enc/quant.c.o
+Linking CXX static library ../../lib/libopencv_perf_imgproc_pch_dephelp.a
+[  8%] Built target opencv_perf_imgproc_pch_dephelp
+[  8%] Generating opencv_test_imgcodecs_pch_dephelp.cxx
+Scanning dependencies of target opencv_test_imgcodecs_pch_dephelp
+[  8%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_test_imgcodecs_pch_dephelp.dir/opencv_test_imgcodecs_pch_dephelp.cxx.o
+[  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/enc/iterator.c.o
+[  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/enc/layer.c.o
+[  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/enc/frame.c.o
+Linking CXX static library ../../lib/libopencv_perf_imgcodecs_pch_dephelp.a
+[  8%] Built target opencv_perf_imgcodecs_pch_dephelp
+[  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/enc/filter.c.o
+Linking CXX static library ../../lib/libopencv_test_imgproc_pch_dephelp.a
+[  8%] Built target opencv_test_imgproc_pch_dephelp
+[  8%] Generating opencv_perf_videoio_pch_dephelp.cxx
+Scanning dependencies of target opencv_perf_videoio_pch_dephelp
+[  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/enc/vp8l.c.o
+[  8%] Building CXX object modules/videoio/CMakeFiles/opencv_perf_videoio_pch_dephelp.dir/opencv_perf_videoio_pch_dephelp.cxx.o
+[  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/enc/backward_references.c.o
+[  8%] [  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/enc/alpha.c.o
+Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/enc/config.c.o
+[  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/enc/tree.c.o
+[  8%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/enc/picture.c.o
+[ 12%] Generating opencv_test_videoio_pch_dephelp.cxx
+Scanning dependencies of target opencv_test_videoio_pch_dephelp
+[ 12%] Building CXX object modules/videoio/CMakeFiles/opencv_test_videoio_pch_dephelp.dir/opencv_test_videoio_pch_dephelp.cxx.o
+Linking CXX static library ../../lib/libopencv_test_imgcodecs_pch_dephelp.a
+[ 12%] Built target opencv_test_imgcodecs_pch_dephelp
+[ 12%] Generating opencv_test_highgui_pch_dephelp.cxx
+Scanning dependencies of target opencv_test_highgui_pch_dephelp
+[ 12%] Building CXX object modules/highgui/CMakeFiles/opencv_test_highgui_pch_dephelp.dir/opencv_test_highgui_pch_dephelp.cxx.o
+Linking CXX static library ../../lib/libopencv_perf_videoio_pch_dephelp.a
+[ 12%] Built target opencv_perf_videoio_pch_dephelp
+[ 12%] Generating opencv_ml_pch_dephelp.cxx
+Scanning dependencies of target opencv_ml_pch_dephelp
+[ 12%] Building CXX object modules/ml/CMakeFiles/opencv_ml_pch_dephelp.dir/opencv_ml_pch_dephelp.cxx.o
+[ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/enc/syntax.c.o
+[ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/mux/muxedit.c.o
+[ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/mux/muxread.c.o
+[ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/mux/muxinternal.c.o
+[ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/utils/bit_writer.c.o
+Linking CXX static library ../../lib/libopencv_test_highgui_pch_dephelp.a
+[ 12%] Built target opencv_test_highgui_pch_dephelp
+[ 12%] Generating opencv_test_ml_pch_dephelp.cxx
+Scanning dependencies of target opencv_test_ml_pch_dephelp
+[ 12%] [ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/utils/huffman.c.o
+Building CXX object modules/ml/CMakeFiles/opencv_test_ml_pch_dephelp.dir/opencv_test_ml_pch_dephelp.cxx.o
+[ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/utils/thread.c.o
+[ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/utils/filters.c.o
+Linking CXX static library ../../lib/libopencv_test_videoio_pch_dephelp.a
+[ 12%] Built target opencv_test_videoio_pch_dephelp
+[ 12%] Generating opencv_features2d_pch_dephelp.cxx
+Scanning dependencies of target opencv_features2d_pch_dephelp
+Linking CXX static library ../../lib/libopencv_ml_pch_dephelp.a
+[ 12%] Built target opencv_ml_pch_dephelp
+[ 12%] Generating opencv_perf_features2d_pch_dephelp.cxx
+Scanning dependencies of target opencv_perf_features2d_pch_dephelp
+[ 12%] Building CXX object modules/features2d/CMakeFiles/opencv_perf_features2d_pch_dephelp.dir/opencv_perf_features2d_pch_dephelp.cxx.o
+[ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/utils/quant_levels.c.o
+[ 12%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d_pch_dephelp.dir/opencv_features2d_pch_dephelp.cxx.o
+[ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/utils/huffman_encode.c.o
+[ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/utils/color_cache.c.o
+[ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/utils/utils.c.o
+[ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/utils/bit_reader.c.o
+[ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/utils/rescaler.c.o
+[ 12%] Building C object 3rdparty/libwebp/CMakeFiles/libwebp.dir/utils/quant_levels_dec.c.o
+Linking C static library ../lib/liblibwebp.a
+[ 12%] Built target libwebp
+[ 12%] Generating opencv_test_features2d_pch_dephelp.cxx
+Scanning dependencies of target opencv_test_features2d_pch_dephelp
+[ 12%] Building CXX object modules/features2d/CMakeFiles/opencv_test_features2d_pch_dephelp.dir/opencv_test_features2d_pch_dephelp.cxx.o
+Linking CXX static library ../../lib/libopencv_test_ml_pch_dephelp.a
+[ 12%] Built target opencv_test_ml_pch_dephelp
+[ 12%] Generating opencv_calib3d_pch_dephelp.cxx
+Scanning dependencies of target opencv_calib3d_pch_dephelp
+[ 12%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d_pch_dephelp.dir/opencv_calib3d_pch_dephelp.cxx.o
+Linking CXX static library ../../lib/libopencv_perf_features2d_pch_dephelp.a
+[ 12%] Built target opencv_perf_features2d_pch_dephelp
+[ 12%] Generating opencv_perf_calib3d_pch_dephelp.cxx
+Scanning dependencies of target opencv_perf_calib3d_pch_dephelp
+[ 12%] Building CXX object modules/calib3d/CMakeFiles/opencv_perf_calib3d_pch_dephelp.dir/opencv_perf_calib3d_pch_dephelp.cxx.o
+Linking CXX static library ../../lib/libopencv_features2d_pch_dephelp.a
+[ 12%] Built target opencv_features2d_pch_dephelp
+[ 12%] Generating opencv_test_calib3d_pch_dephelp.cxx
+Scanning dependencies of target opencv_test_calib3d_pch_dephelp
+[ 12%] Building CXX object modules/calib3d/CMakeFiles/opencv_test_calib3d_pch_dephelp.dir/opencv_test_calib3d_pch_dephelp.cxx.o
+Linking CXX static library ../../lib/libopencv_test_features2d_pch_dephelp.a
+[ 12%] Built target opencv_test_features2d_pch_dephelp
+[ 12%] Generating opencv_objdetect_pch_dephelp.cxx
+Scanning dependencies of target opencv_objdetect_pch_dephelp
+[ 12%] Building CXX object modules/objdetect/CMakeFiles/opencv_objdetect_pch_dephelp.dir/opencv_objdetect_pch_dephelp.cxx.o
+Linking CXX static library ../../lib/libopencv_calib3d_pch_dephelp.a
+[ 12%] Built target opencv_calib3d_pch_dephelp
+[ 12%] Generating opencv_perf_objdetect_pch_dephelp.cxx
+Scanning dependencies of target opencv_perf_objdetect_pch_dephelp
+[ 12%] Building CXX object modules/objdetect/CMakeFiles/opencv_perf_objdetect_pch_dephelp.dir/opencv_perf_objdetect_pch_dephelp.cxx.o
+Linking CXX static library ../../lib/libopencv_perf_calib3d_pch_dephelp.a
+[ 12%] Built target opencv_perf_calib3d_pch_dephelp
+[ 12%] Generating opencv_test_objdetect_pch_dephelp.cxx
+Scanning dependencies of target opencv_test_objdetect_pch_dephelp
+[ 12%] Building CXX object modules/objdetect/CMakeFiles/opencv_test_objdetect_pch_dephelp.dir/opencv_test_objdetect_pch_dephelp.cxx.o
+Linking CXX static library ../../lib/libopencv_test_calib3d_pch_dephelp.a
+[ 12%] Built target opencv_test_calib3d_pch_dephelp
+[ 12%] Generating opencv_photo_pch_dephelp.cxx
+Scanning dependencies of target opencv_photo_pch_dephelp
+[ 12%] Building CXX object modules/photo/CMakeFiles/opencv_photo_pch_dephelp.dir/opencv_photo_pch_dephelp.cxx.o
+Linking CXX static library ../../lib/libopencv_objdetect_pch_dephelp.a
+[ 12%] Built target opencv_objdetect_pch_dephelp
+[ 12%] Generating opencv_perf_photo_pch_dephelp.cxx
+Scanning dependencies of target opencv_perf_photo_pch_dephelp
+[ 12%] Building CXX object modules/photo/CMakeFiles/opencv_perf_photo_pch_dephelp.dir/opencv_perf_photo_pch_dephelp.cxx.o
+Linking CXX static library ../../lib/libopencv_perf_objdetect_pch_dephelp.a
+[ 12%] Built target opencv_perf_objdetect_pch_dephelp
+[ 12%] Generating opencv_test_photo_pch_dephelp.cxx
+Scanning dependencies of target opencv_test_photo_pch_dephelp
+[ 12%] Building CXX object modules/photo/CMakeFiles/opencv_test_photo_pch_dephelp.dir/opencv_test_photo_pch_dephelp.cxx.o
+Linking CXX static library ../../lib/libopencv_test_objdetect_pch_dephelp.a
+[ 12%] Built target opencv_test_objdetect_pch_dephelp
+[ 12%] Generating opencv_video_pch_dephelp.cxx
+Scanning dependencies of target opencv_video_pch_dephelp
+[ 12%] Building CXX object modules/video/CMakeFiles/opencv_video_pch_dephelp.dir/opencv_video_pch_dephelp.cxx.o
+Linking CXX static library ../../lib/libopencv_photo_pch_dephelp.a
+[ 12%] Built target opencv_photo_pch_dephelp
+[ 12%] Generating opencv_perf_video_pch_dephelp.cxx
+Scanning dependencies of target opencv_perf_video_pch_dephelp
+[ 12%] Building CXX object modules/video/CMakeFiles/opencv_perf_video_pch_dephelp.dir/opencv_perf_video_pch_dephelp.cxx.o
+Linking CXX static library ../../lib/libopencv_perf_photo_pch_dephelp.a
+[ 12%] Built target opencv_perf_photo_pch_dephelp
+[ 12%] Generating opencv_test_video_pch_dephelp.cxx
+Scanning dependencies of target opencv_test_video_pch_dephelp
+[ 12%] Building CXX object modules/video/CMakeFiles/opencv_test_video_pch_dephelp.dir/opencv_test_video_pch_dephelp.cxx.o
+Linking CXX static library ../../lib/libopencv_test_photo_pch_dephelp.a
+[ 12%] Built target opencv_test_photo_pch_dephelp
+[ 12%] Generating opencv_shape_pch_dephelp.cxx
+Scanning dependencies of target opencv_shape_pch_dephelp
+[ 12%] Building CXX object modules/shape/CMakeFiles/opencv_shape_pch_dephelp.dir/opencv_shape_pch_dephelp.cxx.o
+Linking CXX static library ../../lib/libopencv_video_pch_dephelp.a
+[ 12%] Built target opencv_video_pch_dephelp
+[ 12%] Generating opencv_test_shape_pch_dephelp.cxx
+Scanning dependencies of target opencv_test_shape_pch_dephelp
+[ 12%] Building CXX object modules/shape/CMakeFiles/opencv_test_shape_pch_dephelp.dir/opencv_test_shape_pch_dephelp.cxx.o
+Linking CXX static library ../../lib/libopencv_perf_video_pch_dephelp.a
+[ 12%] Built target opencv_perf_video_pch_dephelp
+[ 12%] Generating opencv_stitching_pch_dephelp.cxx
+Scanning dependencies of target opencv_stitching_pch_dephelp
+[ 12%] Building CXX object modules/stitching/CMakeFiles/opencv_stitching_pch_dephelp.dir/opencv_stitching_pch_dephelp.cxx.o
+Linking CXX static library ../../lib/libopencv_test_video_pch_dephelp.a
+[ 12%] Built target opencv_test_video_pch_dephelp
+[ 12%] Generating opencv_perf_stitching_pch_dephelp.cxx
+Scanning dependencies of target opencv_perf_stitching_pch_dephelp
+[ 12%] Building CXX object modules/stitching/CMakeFiles/opencv_perf_stitching_pch_dephelp.dir/opencv_perf_stitching_pch_dephelp.cxx.o
+Linking CXX static library ../../lib/libopencv_shape_pch_dephelp.a
+[ 12%] Built target opencv_shape_pch_dephelp
+[ 12%] Generating opencv_test_stitching_pch_dephelp.cxx
+Scanning dependencies of target opencv_test_stitching_pch_dephelp
+[ 12%] Building CXX object modules/stitching/CMakeFiles/opencv_test_stitching_pch_dephelp.dir/opencv_test_stitching_pch_dephelp.cxx.o
+Linking CXX static library ../../lib/libopencv_test_shape_pch_dephelp.a
+[ 12%] Built target opencv_test_shape_pch_dephelp
+[ 12%] Generating opencv_superres_pch_dephelp.cxx
+Scanning dependencies of target opencv_superres_pch_dephelp
+[ 12%] Building CXX object modules/superres/CMakeFiles/opencv_superres_pch_dephelp.dir/opencv_superres_pch_dephelp.cxx.o
+Linking CXX static library ../../lib/libopencv_stitching_pch_dephelp.a
+[ 12%] Built target opencv_stitching_pch_dephelp
+[ 12%] Generating opencv_perf_superres_pch_dephelp.cxx
+Scanning dependencies of target opencv_perf_superres_pch_dephelp
+[ 12%] Building CXX object modules/superres/CMakeFiles/opencv_perf_superres_pch_dephelp.dir/opencv_perf_superres_pch_dephelp.cxx.o
+Linking CXX static library ../../lib/libopencv_perf_stitching_pch_dephelp.a
+[ 12%] Built target opencv_perf_stitching_pch_dephelp
+[ 12%] Generating opencv_test_superres_pch_dephelp.cxx
+Scanning dependencies of target opencv_test_superres_pch_dephelp
+[ 12%] Building CXX object modules/superres/CMakeFiles/opencv_test_superres_pch_dephelp.dir/opencv_test_superres_pch_dephelp.cxx.o
+Linking CXX static library ../../lib/libopencv_superres_pch_dephelp.a
+[ 12%] Built target opencv_superres_pch_dephelp
+[ 12%] Generating opencv_videostab_pch_dephelp.cxx
+Scanning dependencies of target opencv_videostab_pch_dephelp
+[ 12%] Building CXX object modules/videostab/CMakeFiles/opencv_videostab_pch_dephelp.dir/opencv_videostab_pch_dephelp.cxx.o
+Linking CXX static library ../../lib/libopencv_test_stitching_pch_dephelp.a
+[ 12%] Built target opencv_test_stitching_pch_dephelp
+[ 12%] Generating opencv_viz_pch_dephelp.cxx
+Scanning dependencies of target opencv_viz_pch_dephelp
+[ 12%] Building CXX object modules/viz/CMakeFiles/opencv_viz_pch_dephelp.dir/opencv_viz_pch_dephelp.cxx.o
+Linking CXX static library ../../lib/libopencv_perf_superres_pch_dephelp.a
+[ 12%] Built target opencv_perf_superres_pch_dephelp
+[ 12%] Generating opencv_test_viz_pch_dephelp.cxx
+Scanning dependencies of target opencv_test_viz_pch_dephelp
+[ 12%] Building CXX object modules/viz/CMakeFiles/opencv_test_viz_pch_dephelp.dir/opencv_test_viz_pch_dephelp.cxx.o
+Linking CXX static library ../../lib/libopencv_test_superres_pch_dephelp.a
+[ 12%] Built target opencv_test_superres_pch_dephelp
+Scanning dependencies of target pch_Generate_opencv_core
+[ 12%] Generating precomp.hpp
+[ 12%] Generating precomp.hpp.gch/opencv_core_RELEASE.gch
+Linking CXX static library ../../lib/libopencv_videostab_pch_dephelp.a
+[ 12%] Built target opencv_videostab_pch_dephelp
+Scanning dependencies of target pch_Generate_opencv_ts
+[ 12%] Generating precomp.hpp
+[ 12%] Generating precomp.hpp.gch/opencv_ts_RELEASE.gch
+Linking CXX static library ../../lib/libopencv_test_viz_pch_dephelp.a
+[ 12%] Built target opencv_test_viz_pch_dephelp
+Scanning dependencies of target pch_Generate_opencv_imgproc
+[ 12%] Generating precomp.hpp
+[ 12%] Generating precomp.hpp.gch/opencv_imgproc_RELEASE.gch
+[ 12%] Built target pch_Generate_opencv_core
+Scanning dependencies of target pch_Generate_opencv_imgcodecs
+[ 12%] Generating precomp.hpp
+[ 16%] Generating precomp.hpp.gch/opencv_imgcodecs_RELEASE.gch
+[ 16%] [ 16%] Linking CXX static library ../../lib/libopencv_viz_pch_dephelp.a
+Built target pch_Generate_opencv_imgproc
+Built target pch_Generate_opencv_ts
+Scanning dependencies of target pch_Generate_opencv_videoio
+Scanning dependencies of target pch_Generate_opencv_highgui
+[ 16%] [ 16%] Generating precomp.hpp
+Generating precomp.hpp
+[ 16%] Built target opencv_viz_pch_dephelp
+[ 16%] [ 16%] Generating precomp.hpp.gch/opencv_highgui_RELEASE.gch
+Generating precomp.hpp.gch/opencv_videoio_RELEASE.gch
+Scanning dependencies of target pch_Generate_opencv_perf_core
+[ 16%] Generating perf_precomp.hpp
+[ 16%] Generating perf_precomp.hpp.gch/opencv_perf_core_RELEASE.gch
+[ 16%] Built target pch_Generate_opencv_imgcodecs
+Scanning dependencies of target pch_Generate_opencv_test_core
+[ 16%] Generating test_precomp.hpp
+[ 16%] Generating test_precomp.hpp.gch/opencv_test_core_RELEASE.gch
+[ 16%] Built target pch_Generate_opencv_perf_core
+Scanning dependencies of target pch_Generate_opencv_flann
+[ 16%] Generating precomp.hpp
+[ 16%] Generating precomp.hpp.gch/opencv_flann_RELEASE.gch
+[ 16%] Built target pch_Generate_opencv_videoio
+Scanning dependencies of target pch_Generate_opencv_test_flann
+[ 16%] Generating test_precomp.hpp
+[ 16%] Generating test_precomp.hpp.gch/opencv_test_flann_RELEASE.gch
+[ 16%] Built target pch_Generate_opencv_highgui
+Scanning dependencies of target pch_Generate_opencv_perf_imgproc
+[ 16%] Generating perf_precomp.hpp
+[ 16%] Generating perf_precomp.hpp.gch/opencv_perf_imgproc_RELEASE.gch
+[ 16%] Built target pch_Generate_opencv_test_core
+Scanning dependencies of target pch_Generate_opencv_test_imgproc
+[ 16%] Generating test_precomp.hpp
+[ 16%] Generating test_precomp.hpp.gch/opencv_test_imgproc_RELEASE.gch
+[ 16%] Built target pch_Generate_opencv_flann
+Scanning dependencies of target pch_Generate_opencv_perf_imgcodecs
+[ 16%] Generating perf_precomp.hpp
+[ 16%] Generating perf_precomp.hpp.gch/opencv_perf_imgcodecs_RELEASE.gch
+[ 16%] Built target pch_Generate_opencv_perf_imgproc
+Scanning dependencies of target pch_Generate_opencv_test_imgcodecs
+[ 16%] Generating test_precomp.hpp
+[ 16%] Generating test_precomp.hpp.gch/opencv_test_imgcodecs_RELEASE.gch
+[ 16%] Built target pch_Generate_opencv_test_flann
+Scanning dependencies of target pch_Generate_opencv_perf_videoio
+[ 16%] Generating perf_precomp.hpp
+[ 16%] Generating perf_precomp.hpp.gch/opencv_perf_videoio_RELEASE.gch
+[ 16%] Built target pch_Generate_opencv_perf_imgcodecs
+Scanning dependencies of target pch_Generate_opencv_test_videoio
+[ 16%] Generating test_precomp.hpp
+[ 16%] Generating test_precomp.hpp.gch/opencv_test_videoio_RELEASE.gch
+[ 16%] Built target pch_Generate_opencv_perf_videoio
+Scanning dependencies of target pch_Generate_opencv_test_highgui
+[ 20%] Generating test_precomp.hpp
+[ 20%] Generating test_precomp.hpp.gch/opencv_test_highgui_RELEASE.gch
+[ 20%] Built target pch_Generate_opencv_test_imgproc
+Scanning dependencies of target pch_Generate_opencv_ml
+[ 20%] Generating precomp.hpp
+[ 20%] Generating precomp.hpp.gch/opencv_ml_RELEASE.gch
+[ 20%] Built target pch_Generate_opencv_test_imgcodecs
+Scanning dependencies of target pch_Generate_opencv_test_ml
+[ 20%] Generating test_precomp.hpp
+[ 20%] Generating test_precomp.hpp.gch/opencv_test_ml_RELEASE.gch
+[ 20%] Built target pch_Generate_opencv_test_highgui
+Scanning dependencies of target pch_Generate_opencv_features2d
+[ 20%] Generating precomp.hpp
+[ 20%] Generating precomp.hpp.gch/opencv_features2d_RELEASE.gch
+[ 20%] Built target pch_Generate_opencv_test_videoio
+Scanning dependencies of target pch_Generate_opencv_perf_features2d
+[ 20%] Generating perf_precomp.hpp
+[ 20%] Generating perf_precomp.hpp.gch/opencv_perf_features2d_RELEASE.gch
+[ 20%] Built target pch_Generate_opencv_ml
+[ 20%] Scanning dependencies of target pch_Generate_opencv_test_features2d
+Built target pch_Generate_opencv_test_ml
+[ 20%] Generating test_precomp.hpp
+Scanning dependencies of target pch_Generate_opencv_calib3d
+[ 20%] Generating test_precomp.hpp.gch/opencv_test_features2d_RELEASE.gch
+[ 20%] Generating precomp.hpp
+[ 20%] Generating precomp.hpp.gch/opencv_calib3d_RELEASE.gch
+[ 20%] Built target pch_Generate_opencv_features2d
+Scanning dependencies of target pch_Generate_opencv_perf_calib3d
+[ 20%] Generating perf_precomp.hpp
+[ 20%] Generating perf_precomp.hpp.gch/opencv_perf_calib3d_RELEASE.gch
+[ 20%] Built target pch_Generate_opencv_perf_features2d
+Scanning dependencies of target pch_Generate_opencv_test_calib3d
+[ 20%] Generating test_precomp.hpp
+[ 20%] Generating test_precomp.hpp.gch/opencv_test_calib3d_RELEASE.gch
+[ 20%] Built target pch_Generate_opencv_test_features2d
+Scanning dependencies of target pch_Generate_opencv_objdetect
+[ 20%] Generating precomp.hpp
+[ 20%] Generating precomp.hpp.gch/opencv_objdetect_RELEASE.gch
+[ 20%] Built target pch_Generate_opencv_calib3d
+Scanning dependencies of target pch_Generate_opencv_perf_objdetect
+[ 20%] Generating perf_precomp.hpp
+[ 20%] Generating perf_precomp.hpp.gch/opencv_perf_objdetect_RELEASE.gch
+[ 20%] Built target pch_Generate_opencv_perf_calib3d
+Scanning dependencies of target pch_Generate_opencv_test_objdetect
+[ 20%] Generating test_precomp.hpp
+[ 20%] Generating test_precomp.hpp.gch/opencv_test_objdetect_RELEASE.gch
+[ 20%] Built target pch_Generate_opencv_test_calib3d
+Scanning dependencies of target pch_Generate_opencv_photo
+[ 20%] Generating precomp.hpp
+[ 20%] Generating precomp.hpp.gch/opencv_photo_RELEASE.gch
+[ 20%] Built target pch_Generate_opencv_perf_objdetect
+Scanning dependencies of target pch_Generate_opencv_perf_photo
+[ 20%] Generating perf_precomp.hpp
+[ 20%] Generating perf_precomp.hpp.gch/opencv_perf_photo_RELEASE.gch
+[ 20%] Built target pch_Generate_opencv_objdetect
+Scanning dependencies of target pch_Generate_opencv_test_photo
+[ 20%] Generating test_precomp.hpp
+[ 20%] Generating test_precomp.hpp.gch/opencv_test_photo_RELEASE.gch
+[ 20%] Built target pch_Generate_opencv_test_objdetect
+Scanning dependencies of target pch_Generate_opencv_video
+[ 20%] Generating precomp.hpp
+[ 20%] Generating precomp.hpp.gch/opencv_video_RELEASE.gch
+[ 20%] Built target pch_Generate_opencv_photo
+[ 20%] Scanning dependencies of target pch_Generate_opencv_perf_video
+Built target pch_Generate_opencv_perf_photo
+[ 20%] Generating perf_precomp.hpp
+Scanning dependencies of target pch_Generate_opencv_test_video
+[ 20%] [ 20%] Generating perf_precomp.hpp.gch/opencv_perf_video_RELEASE.gch
+Generating test_precomp.hpp
+[ 20%] Generating test_precomp.hpp.gch/opencv_test_video_RELEASE.gch
+[ 20%] Built target pch_Generate_opencv_test_photo
+Scanning dependencies of target pch_Generate_opencv_shape
+[ 20%] Generating precomp.hpp
+[ 20%] Generating precomp.hpp.gch/opencv_shape_RELEASE.gch
+[ 20%] Built target pch_Generate_opencv_video
+Scanning dependencies of target pch_Generate_opencv_test_shape
+[ 20%] Generating test_precomp.hpp
+[ 20%] Generating test_precomp.hpp.gch/opencv_test_shape_RELEASE.gch
+[ 20%] Built target pch_Generate_opencv_test_video
+Scanning dependencies of target pch_Generate_opencv_stitching
+[ 20%] Generating precomp.hpp
+[ 20%] Generating precomp.hpp.gch/opencv_stitching_RELEASE.gch
+[ 20%] Built target pch_Generate_opencv_perf_video
+Scanning dependencies of target pch_Generate_opencv_perf_stitching
+[ 20%] Generating perf_precomp.hpp
+[ 20%] Generating perf_precomp.hpp.gch/opencv_perf_stitching_RELEASE.gch
+[ 20%] Built target pch_Generate_opencv_shape
+Scanning dependencies of target pch_Generate_opencv_test_stitching
+[ 20%] Generating test_precomp.hpp
+[ 20%] Generating test_precomp.hpp.gch/opencv_test_stitching_RELEASE.gch
+[ 20%] Built target pch_Generate_opencv_test_shape
+Scanning dependencies of target pch_Generate_opencv_superres
+[ 20%] Generating precomp.hpp
+[ 20%] Generating precomp.hpp.gch/opencv_superres_RELEASE.gch
+[ 20%] Built target pch_Generate_opencv_perf_stitching
+Scanning dependencies of target pch_Generate_opencv_perf_superres
+[ 20%] Generating perf_precomp.hpp
+[ 20%] Generating perf_precomp.hpp.gch/opencv_perf_superres_RELEASE.gch
+[ 20%] Built target pch_Generate_opencv_stitching
+Scanning dependencies of target pch_Generate_opencv_test_superres
+[ 20%] Generating test_precomp.hpp
+[ 20%] Generating test_precomp.hpp.gch/opencv_test_superres_RELEASE.gch
+[ 20%] Built target pch_Generate_opencv_test_stitching
+Scanning dependencies of target pch_Generate_opencv_videostab
+[ 20%] Generating precomp.hpp
+[ 20%] Generating precomp.hpp.gch/opencv_videostab_RELEASE.gch
+[ 20%] Built target pch_Generate_opencv_superres
+Scanning dependencies of target pch_Generate_opencv_viz
+[ 20%] Generating precomp.hpp
+[ 20%] Generating precomp.hpp.gch/opencv_viz_RELEASE.gch
+[ 20%] Built target pch_Generate_opencv_perf_superres
+[ 20%] Built target pch_Generate_opencv_test_superres
+Scanning dependencies of target pch_Generate_opencv_test_viz
+[ 20%] [ 20%] Generating test_precomp.hpp
+Generating opencl_kernels_core.cpp, opencl_kernels_core.hpp
+[ 20%] Generating test_precomp.hpp.gch/opencv_test_viz_RELEASE.gch
+Scanning dependencies of target opencv_core
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/glob.cpp.o
+[ 20%] Built target pch_Generate_opencv_videostab
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/kmeans.cpp.o
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/rand.cpp.o
+[ 20%] [ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/cuda_gpu_mat.cpp.o
+Built target pch_Generate_opencv_test_viz
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/cuda_stream.cpp.o
+[ 20%] Built target pch_Generate_opencv_viz
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/lda.cpp.o
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/gl_core_3_1.cpp.o
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/downhill_simplex.cpp.o
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/convert.cpp.o
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/types.cpp.o
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/tables.cpp.o
+[ 20%] [ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/out.cpp.o
+Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/matop.cpp.o
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/mathfuncs.cpp.o
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/dxt.cpp.o
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/lpsolver.cpp.o
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/persistence.cpp.o
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/cuda_host_mem.cpp.o
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/ocl.cpp.o
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/conjugate_gradient.cpp.o
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/cuda_buffer_pool.cpp.o
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/matmul.cpp.o
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/stl.cpp.o
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/system.cpp.o
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/command_line_parser.cpp.o
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/array.cpp.o
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/opengl.cpp.o
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/cuda_info.cpp.o
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/umatrix.cpp.o
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/lapack.cpp.o
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/alloc.cpp.o
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/matrix.cpp.o
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/algorithm.cpp.o
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/copy.cpp.o
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/pca.cpp.o
+[ 20%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/parallel.cpp.o
+[ 25%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/stat.cpp.o
+[ 25%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/directx.cpp.o
+[ 25%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/datastructs.cpp.o
+[ 25%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/opencl/runtime/opencl_clamdblas.cpp.o
+[ 25%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/opencl/runtime/opencl_core.cpp.o
+[ 25%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/opencl/runtime/opencl_clamdfft.cpp.o
+[ 25%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/src/arithm.cpp.o
+[ 25%] Building CXX object modules/core/CMakeFiles/opencv_core.dir/opencl_kernels_core.cpp.o
+Linking CXX shared library ../../lib/libopencv_core.so
+[ 25%] Built target opencv_core
+Scanning dependencies of target opencv_flann
+Scanning dependencies of target opencv_viz
+[ 25%] Generating opencl_kernels_imgproc.cpp, opencl_kernels_imgproc.hpp
+Scanning dependencies of target opencv_ml
+[ 25%] Building CXX object modules/flann/CMakeFiles/opencv_flann.dir/src/miniflann.cpp.o
+[ 25%] Building CXX object modules/ml/CMakeFiles/opencv_ml.dir/src/tree.cpp.o
+[ 25%] Building CXX object modules/viz/CMakeFiles/opencv_viz.dir/src/types.cpp.o
+Scanning dependencies of target opencv_imgproc
+[ 25%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/shapedescr.cpp.o
+[ 25%] Building CXX object modules/viz/CMakeFiles/opencv_viz.dir/src/widget.cpp.o
+[ 25%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/linefit.cpp.o
+[ 25%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/imgwarp.cpp.o
+[ 25%] Building CXX object modules/ml/CMakeFiles/opencv_ml.dir/src/testset.cpp.o
+[ 25%] Building CXX object modules/viz/CMakeFiles/opencv_viz.dir/src/vizcore.cpp.o
+[ 25%] Building CXX object modules/ml/CMakeFiles/opencv_ml.dir/src/em.cpp.o
+[ 25%] Building CXX object modules/viz/CMakeFiles/opencv_viz.dir/src/clouds.cpp.o
+[ 25%] Building CXX object modules/ml/CMakeFiles/opencv_ml.dir/src/kdtree.cpp.o
+[ 25%] Building CXX object modules/ml/CMakeFiles/opencv_ml.dir/src/inner_functions.cpp.o
+[ 25%] Building CXX object modules/ml/CMakeFiles/opencv_ml.dir/src/rtrees.cpp.o
+[ 25%] Building CXX object modules/ml/CMakeFiles/opencv_ml.dir/src/knearest.cpp.o
+[ 25%] Building CXX object modules/viz/CMakeFiles/opencv_viz.dir/src/shapes.cpp.o
+[ 25%] Building CXX object modules/ml/CMakeFiles/opencv_ml.dir/src/gbt.cpp.o
+[ 25%] Building CXX object modules/ml/CMakeFiles/opencv_ml.dir/src/lr.cpp.o
+[ 25%] Building CXX object modules/flann/CMakeFiles/opencv_flann.dir/src/flann.cpp.o
+Linking CXX shared library ../../lib/libopencv_flann.so
+[ 25%] Built target opencv_flann
+[ 25%] Building CXX object modules/ml/CMakeFiles/opencv_ml.dir/src/boost.cpp.o
+[ 25%] Building CXX object modules/viz/CMakeFiles/opencv_viz.dir/src/vizimpl.cpp.o
+[ 25%] Building CXX object modules/viz/CMakeFiles/opencv_viz.dir/src/vtk/vtkCloudMatSink.cpp.o
+[ 25%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/intersection.cpp.o
+[ 25%] Building CXX object modules/ml/CMakeFiles/opencv_ml.dir/src/ann_mlp.cpp.o
+[ 25%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/tables.cpp.o
+[ 25%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/contours.cpp.o
+[ 25%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/gabor.cpp.o
+[ 25%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/featureselect.cpp.o
+[ 25%] Building CXX object modules/ml/CMakeFiles/opencv_ml.dir/src/svm.cpp.o
+[ 25%] Building CXX object modules/viz/CMakeFiles/opencv_viz.dir/src/vtk/vtkTrajectorySource.cpp.o
+[ 25%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/utils.cpp.o
+[ 25%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/emd.cpp.o
+[ 25%] Building CXX object modules/ml/CMakeFiles/opencv_ml.dir/src/nbayes.cpp.o
+[ 25%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/segmentation.cpp.o
+[ 25%] Building CXX object modules/viz/CMakeFiles/opencv_viz.dir/src/vtk/vtkXYZWriter.cpp.o
+[ 25%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/deriv.cpp.o
+[ 25%] Building CXX object modules/ml/CMakeFiles/opencv_ml.dir/src/data.cpp.o
+[ 25%] Building CXX object modules/viz/CMakeFiles/opencv_viz.dir/src/vtk/vtkVizInteractorStyle.cpp.o
+[ 25%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/lsd.cpp.o
+[ 25%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/connectedcomponents.cpp.o
+[ 25%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/drawing.cpp.o
+[ 25%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/filter.cpp.o
+[ 25%] Building CXX object modules/viz/CMakeFiles/opencv_viz.dir/src/vtk/vtkXYZReader.cpp.o
+Linking CXX shared library ../../lib/libopencv_ml.so
+[ 25%] Built target opencv_ml
+[ 25%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/colormap.cpp.o
+[ 25%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/approx.cpp.o
+[ 25%] Building CXX object modules/viz/CMakeFiles/opencv_viz.dir/src/vtk/vtkCloudMatSource.cpp.o
+[ 25%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/morph.cpp.o
+[ 25%] Building CXX object modules/viz/CMakeFiles/opencv_viz.dir/src/vtk/vtkImageMatSource.cpp.o
+[ 25%] Building CXX object modules/viz/CMakeFiles/opencv_viz.dir/src/vtk/vtkOBJWriter.cpp.o
+[ 25%] Building CXX object modules/viz/CMakeFiles/opencv_viz.dir/src/viz3d.cpp.o
+[ 25%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/corner.cpp.o
+Linking CXX shared library ../../lib/libopencv_viz.so
+[ 25%] Built target opencv_viz
+[ 25%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/hershey_fonts.cpp.o
+[ 25%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/blend.cpp.o
+[ 25%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/thresh.cpp.o
+[ 25%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/templmatch.cpp.o
+[ 25%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/samplers.cpp.o
+[ 25%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/clahe.cpp.o
+[ 25%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/histogram.cpp.o
+[ 25%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/generalized_hough.cpp.o
+[ 25%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/geometry.cpp.o
+[ 29%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/grabcut.cpp.o
+[ 29%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/matchcontours.cpp.o
+[ 29%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/phasecorr.cpp.o
+[ 29%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/smooth.cpp.o
+[ 29%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/undistort.cpp.o
+[ 29%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/sumpixels.cpp.o
+[ 29%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/distransform.cpp.o
+[ 29%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/min_enclosing_triangle.cpp.o
+[ 29%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/color.cpp.o
+[ 29%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/accum.cpp.o
+[ 29%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/convhull.cpp.o
+[ 29%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/hough.cpp.o
+[ 29%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/demosaicing.cpp.o
+[ 29%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/cornersubpix.cpp.o
+[ 29%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/pyramids.cpp.o
+[ 29%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/floodfill.cpp.o
+[ 29%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/subdivision2d.cpp.o
+[ 29%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/rotcalipers.cpp.o
+[ 29%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/moments.cpp.o
+[ 29%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/src/canny.cpp.o
+[ 29%] Building CXX object modules/imgproc/CMakeFiles/opencv_imgproc.dir/opencl_kernels_imgproc.cpp.o
+Linking CXX shared library ../../lib/libopencv_imgproc.so
+[ 29%] Built target opencv_imgproc
+[ 29%] [ 29%] Scanning dependencies of target opencv_imgcodecs
+Generating opencl_kernels_photo.cpp, opencl_kernels_photo.hpp
+Generating opencl_kernels_video.cpp, opencl_kernels_video.hpp
+Scanning dependencies of target opencv_photo
+Scanning dependencies of target opencv_video
+[ 29%] [ 29%] Building CXX object modules/video/CMakeFiles/opencv_video.dir/src/lkpyramid.cpp.o
+Building CXX object modules/video/CMakeFiles/opencv_video.dir/src/ecc.cpp.o
+[ 29%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/hdr_common.cpp.o
+[ 29%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/loadsave.cpp.o
+[ 29%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/seamless_cloning.cpp.o
+[ 29%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/tonemap.cpp.o
+[ 29%] Building CXX object modules/video/CMakeFiles/opencv_video.dir/src/optflowgf.cpp.o
+[ 29%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/contrast_preserve.cpp.o
+[ 33%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/utils.cpp.o
+[ 33%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_hdr.cpp.o
+[ 33%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_exr.cpp.o
+[ 33%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_bmp.cpp.o
+[ 33%] Building CXX object modules/video/CMakeFiles/opencv_video.dir/src/bgfg_KNN.cpp.o
+[ 33%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/inpaint.cpp.o
+[ 33%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_jpeg.cpp.o
+[ 33%] Building CXX object modules/video/CMakeFiles/opencv_video.dir/src/tvl1flow.cpp.o
+[ 33%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_gdal.cpp.o
+[ 33%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_tiff.cpp.o
+[ 33%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_sunras.cpp.o
+[ 33%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_webp.cpp.o
+[ 33%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_base.cpp.o
+[ 33%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/npr.cpp.o
+[ 33%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_png.cpp.o
+[ 33%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_pxm.cpp.o
+[ 33%] Building CXX object modules/video/CMakeFiles/opencv_video.dir/src/kalman.cpp.o
+[ 33%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/grfmt_jpeg2000.cpp.o
+[ 33%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/bitstrm.cpp.o
+[ 33%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/denoising.cpp.o
+[ 33%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_imgcodecs.dir/src/rgbe.cpp.o
+Linking CXX shared library ../../lib/libopencv_imgcodecs.so
+[ 33%] Built target opencv_imgcodecs
+[ 33%] Building CXX object modules/video/CMakeFiles/opencv_video.dir/src/camshift.cpp.o
+[ 33%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/align.cpp.o
+[ 33%] Building CXX object modules/video/CMakeFiles/opencv_video.dir/src/bgfg_gaussmix2.cpp.o
+Scanning dependencies of target opencv_videoio
+[ 33%] Building CXX object modules/videoio/CMakeFiles/opencv_videoio.dir/src/cap.cpp.o
+[ 33%] Building CXX object modules/video/CMakeFiles/opencv_video.dir/src/compat_video.cpp.o
+[ 33%] Building CXX object modules/video/CMakeFiles/opencv_video.dir/opencl_kernels_video.cpp.o
+[ 33%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/calibrate.cpp.o
+Linking CXX shared library ../../lib/libopencv_video.so
+[ 33%] Built target opencv_video
+[ 37%] Building CXX object modules/videoio/CMakeFiles/opencv_videoio.dir/src/cap_images.cpp.o
+[ 37%] Building CXX object modules/videoio/CMakeFiles/opencv_videoio.dir/src/cap_dc1394_v2.cpp.o
+[ 37%] Building CXX object modules/videoio/CMakeFiles/opencv_videoio.dir/src/cap_gstreamer.cpp.o
+Scanning dependencies of target opencv_shape
+[ 37%] Building CXX object modules/shape/CMakeFiles/opencv_shape.dir/src/emdL1.cpp.o
+[ 37%] Building CXX object modules/videoio/CMakeFiles/opencv_videoio.dir/src/cap_libv4l.cpp.o
+[ 37%] Building CXX object modules/videoio/CMakeFiles/opencv_videoio.dir/src/cap_ffmpeg.cpp.o
+[ 37%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/seamless_cloning_impl.cpp.o
+[ 37%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/denoising.cuda.cpp.o
+[ 37%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/merge.cpp.o
+Linking CXX shared library ../../lib/libopencv_videoio.so
+[ 37%] Built target opencv_videoio
+[ 37%] Building CXX object modules/shape/CMakeFiles/opencv_shape.dir/src/sc_dis.cpp.o
+[ 37%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/src/denoise_tvl1.cpp.o
+[ 37%] Building CXX object modules/photo/CMakeFiles/opencv_photo.dir/opencl_kernels_photo.cpp.o
+[ 37%] Generating qrc_window_QT.cxx
+[ 37%] Generating src/moc_window_QT.cxx
+Linking CXX shared library ../../lib/libopencv_photo.so
+[ 37%] Generating opencl_kernels_superres.cpp, opencl_kernels_superres.hpp
+Scanning dependencies of target opencv_superres
+[ 37%] Built target opencv_photo
+[ 37%] Building CXX object modules/shape/CMakeFiles/opencv_shape.dir/src/hist_cost.cpp.o
+[ 37%] Building CXX object modules/superres/CMakeFiles/opencv_superres.dir/src/frame_source.cpp.o
+[ 37%] Building CXX object modules/shape/CMakeFiles/opencv_shape.dir/src/aff_trans.cpp.o
+Scanning dependencies of target opencv_highgui
+[ 37%] Building CXX object modules/superres/CMakeFiles/opencv_superres.dir/src/optical_flow.cpp.o
+[ 37%] Building CXX object modules/highgui/CMakeFiles/opencv_highgui.dir/src/window.cpp.o
+[ 37%] Building CXX object modules/shape/CMakeFiles/opencv_shape.dir/src/tps_trans.cpp.o
+[ 37%] Building CXX object modules/highgui/CMakeFiles/opencv_highgui.dir/src/window_QT.cpp.o
+[ 37%] Building CXX object modules/superres/CMakeFiles/opencv_superres.dir/src/btv_l1.cpp.o
+[ 37%] Building CXX object modules/shape/CMakeFiles/opencv_shape.dir/src/precomp.cpp.o
+[ 37%] Building CXX object modules/shape/CMakeFiles/opencv_shape.dir/src/haus_dis.cpp.o
+[ 37%] Building CXX object modules/highgui/CMakeFiles/opencv_highgui.dir/src/moc_window_QT.cxx.o
+Linking CXX shared library ../../lib/libopencv_shape.so
+[ 37%] Built target opencv_shape
+[ 37%] Building CXX object modules/superres/CMakeFiles/opencv_superres.dir/src/btv_l1_cuda.cpp.o
+[ 37%] Building CXX object modules/superres/CMakeFiles/opencv_superres.dir/src/input_array_utility.cpp.o
+[ 37%] Building CXX object modules/highgui/CMakeFiles/opencv_highgui.dir/qrc_window_QT.cxx.o
+[ 37%] Building CXX object modules/superres/CMakeFiles/opencv_superres.dir/src/super_resolution.cpp.o
+[ 37%] Building CXX object modules/superres/CMakeFiles/opencv_superres.dir/opencl_kernels_superres.cpp.o
+Linking CXX shared library ../../lib/libopencv_superres.so
+[ 37%] Built target opencv_superres
+Linking CXX shared library ../../lib/libopencv_highgui.so
+[ 37%] Built target opencv_highgui
+[ 37%] [ 37%] Generating opencl_kernels_features2d.cpp, opencl_kernels_features2d.hpp
+Generating opencl_kernels_objdetect.cpp, opencl_kernels_objdetect.hpp
+Scanning dependencies of target opencv_ts
+Scanning dependencies of target opencv_features2d
+Scanning dependencies of target opencv_objdetect
+[ 37%] [ 37%] Building CXX object modules/ts/CMakeFiles/opencv_ts.dir/src/ocl_test.cpp.o
+Building CXX object modules/ts/CMakeFiles/opencv_ts.dir/src/cuda_perf.cpp.o
+[ 37%] Building CXX object modules/objdetect/CMakeFiles/opencv_objdetect.dir/src/cascadedetect.cpp.o
+[ 37%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/fast_score.cpp.o
+[ 37%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/kaze.cpp.o
+[ 37%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/feature2d.cpp.o
+[ 37%] Building CXX object modules/objdetect/CMakeFiles/opencv_objdetect.dir/src/haar.cpp.o
+[ 37%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/bagofwords.cpp.o
+[ 37%] Building CXX object modules/ts/CMakeFiles/opencv_ts.dir/src/ts_perf.cpp.o
+[ 37%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/blobdetector.cpp.o
+[ 37%] Building CXX object modules/ts/CMakeFiles/opencv_ts.dir/src/cuda_test.cpp.o
+[ 37%] Building CXX object modules/objdetect/CMakeFiles/opencv_objdetect.dir/src/detection_based_tracker.cpp.o
+[ 37%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/mser.cpp.o
+[ 37%] Building CXX object modules/objdetect/CMakeFiles/opencv_objdetect.dir/src/hog.cpp.o
+[ 37%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/fast.cpp.o
+[ 37%] Building CXX object modules/objdetect/CMakeFiles/opencv_objdetect.dir/src/cascadedetect_convert.cpp.o
+[ 37%] Building CXX object modules/ts/CMakeFiles/opencv_ts.dir/src/ocl_perf.cpp.o
+[ 37%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/orb.cpp.o
+[ 37%] Building CXX object modules/ts/CMakeFiles/opencv_ts.dir/src/ts_arrtest.cpp.o
+[ 41%] Building CXX object modules/objdetect/CMakeFiles/opencv_objdetect.dir/opencl_kernels_objdetect.cpp.o
+[ 41%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/brisk.cpp.o
+[ 41%] Building CXX object modules/ts/CMakeFiles/opencv_ts.dir/src/ts_func.cpp.o
+[ 41%] Building CXX object modules/ts/CMakeFiles/opencv_ts.dir/src/ts.cpp.o
+Linking CXX shared library ../../lib/libopencv_objdetect.so
+[ 41%] Built target opencv_objdetect
+[ 41%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/dynamic.cpp.o
+[ 41%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/evaluation.cpp.o
+[ 41%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/kaze/AKAZEFeatures.cpp.o
+[ 41%] Building CXX object modules/ts/CMakeFiles/opencv_ts.dir/src/ts_gtest.cpp.o
+[ 41%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/kaze/KAZEFeatures.cpp.o
+[ 41%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/kaze/nldiffusion_functions.cpp.o
+[ 41%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/kaze/fed.cpp.o
+[ 41%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/draw.cpp.o
+[ 41%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/akaze.cpp.o
+[ 41%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/keypoint.cpp.o
+[ 41%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/gftt.cpp.o
+[ 41%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/src/matchers.cpp.o
+[ 41%] Building CXX object modules/features2d/CMakeFiles/opencv_features2d.dir/opencl_kernels_features2d.cpp.o
+Linking CXX static library ../../lib/libopencv_ts.a
+[ 41%] Built target opencv_ts
+Scanning dependencies of target opencv_test_flann
+Scanning dependencies of target opencv_test_core
+Scanning dependencies of target opencv_perf_core
+[ 41%] Building CXX object modules/flann/CMakeFiles/opencv_test_flann.dir/test/test_main.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_perf_core.dir/perf/perf_stat.cpp.o
+Linking CXX shared library ../../lib/libopencv_features2d.so
+[ 41%] Built target opencv_features2d
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_perf_core.dir/perf/perf_minmaxloc.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_test_core.dir/test/test_ds.cpp.o
+[ 41%] Building CXX object modules/flann/CMakeFiles/opencv_test_flann.dir/test/test_lshtable_badarg.cpp.o
+Linking CXX executable ../../bin/opencv_test_flann
+[ 41%] Built target opencv_test_flann
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_test_core.dir/test/test_downhill_simplex.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_perf_core.dir/perf/perf_convertTo.cpp.o
+Scanning dependencies of target opencv_perf_imgproc
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_perf_core.dir/perf/perf_abs.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/perf_corners.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_test_core.dir/test/test_eigen.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/perf_remap.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_test_core.dir/test/test_dxt.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_perf_core.dir/perf/perf_addWeighted.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_test_core.dir/test/test_rand.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_test_core.dir/test/test_conjugate_gradient.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_perf_core.dir/perf/perf_mat.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/perf_sepfilters.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_test_core.dir/test/test_io.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_test_core.dir/test/test_misc.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_test_core.dir/test/test_ptr.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_perf_core.dir/perf/perf_dot.cpp.o
+Scanning dependencies of target opencv_test_imgproc
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_test_core.dir/test/test_ippasync.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/test_grabcut.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_test_core.dir/test/test_umat.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_perf_core.dir/perf/perf_arithm.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/perf_goodFeaturesToTrack.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/test_histograms.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/test_imgproc_umat.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/perf_resize.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/test_thresh.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_perf_core.dir/perf/perf_dft.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/test_convhull.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/test_emd.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/perf_integral.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/test_contours.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_test_core.dir/test/ocl/test_channels.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_perf_core.dir/perf/perf_math.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/ocl/test_match_template.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/perf_distanceTransform.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_perf_core.dir/perf/perf_norm.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/ocl/test_filter2d.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/perf_warp.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/ocl/test_warp.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_perf_core.dir/perf/perf_reduce.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_test_core.dir/test/ocl/test_dft.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/perf_cvt_color.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_perf_core.dir/perf/perf_compare.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_test_core.dir/test/ocl/test_gemm.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_perf_core.dir/perf/perf_inRange.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/ocl/test_pyramids.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_test_core.dir/test/ocl/test_matrix_expr.cpp.o
+[ 41%] [ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/perf_phasecorr.cpp.o
+Building CXX object modules/core/CMakeFiles/opencv_perf_core.dir/perf/perf_sort.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/ocl/test_blend.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/perf_threshold.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_test_core.dir/test/ocl/test_arithm.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_perf_core.dir/perf/opencl/perf_gemm.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/ocl/test_filters.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/perf_blur.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_perf_core.dir/perf/opencl/perf_channels.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_perf_core.dir/perf/opencl/perf_usage_flags.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/ocl/test_accumulate.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/perf_moments.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_perf_core.dir/perf/opencl/perf_dxt.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/perf_houghLines.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/ocl/test_histogram.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_perf_core.dir/perf/opencl/perf_arithm.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/perf_canny.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_test_core.dir/test/ocl/test_image2d.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/perf_morph.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/ocl/test_boxfilter.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_test_core.dir/test/ocl/test_matrix_operation.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/perf_histogram.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/ocl/test_imgproc.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_test_core.dir/test/test_main.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_test_core.dir/test/test_mat.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/perf_bilateral.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/perf_pyramids.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_test_core.dir/test/test_arithm.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/ocl/test_medianfilter.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/perf_filter2d.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/ocl/test_color.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/opencl/perf_imgproc.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_test_core.dir/test/test_countnonzero.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_perf_core.dir/perf/opencl/perf_bufferpool.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_test_core.dir/test/test_lpsolver.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/opencl/perf_accumulate.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_perf_core.dir/perf/opencl/perf_matop.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_test_core.dir/test/test_operations.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/ocl/test_canny.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/opencl/perf_3vs4.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_perf_core.dir/perf/perf_main.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_perf_core.dir/perf/perf_merge.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/ocl/test_sepfilter2D.cpp.o
+[ 41%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/opencl/perf_imgwarp.cpp.o
+[ 41%] Building CXX object modules/core/CMakeFiles/opencv_perf_core.dir/perf/perf_split.cpp.o
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/ocl/test_gftt.cpp.o
+[ 45%] Building CXX object modules/core/CMakeFiles/opencv_perf_core.dir/perf/perf_bitwise.cpp.o
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/opencl/perf_pyramid.cpp.o
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/ocl/test_houghlines.cpp.o
+Linking CXX executable ../../bin/opencv_perf_core
+[ 45%] Built target opencv_perf_core
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/test_main.cpp.o
+Scanning dependencies of target opencv_perf_imgcodecs
+[ 45%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_perf_imgcodecs.dir/perf/perf_main.cpp.o
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/opencl/perf_moments.cpp.o
+Linking CXX executable ../../bin/opencv_perf_imgcodecs
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/test_boundingrect.cpp.o
+[ 45%] Built target opencv_perf_imgcodecs
+[ 45%] Building CXX object modules/core/CMakeFiles/opencv_test_core.dir/test/test_math.cpp.o
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/test_bilateral_filter.cpp.o
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/opencl/perf_houghLines.cpp.o
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/test_moments.cpp.o
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/test_intersection.cpp.o
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/test_connectedcomponents.cpp.o
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/test_filter.cpp.o
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/opencl/perf_blend.cpp.o
+[ 45%] Building CXX object modules/core/CMakeFiles/opencv_test_core.dir/test/test_rotatedrect.cpp.o
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/opencl/perf_gftt.cpp.o
+[ 45%] Building CXX object modules/core/CMakeFiles/opencv_test_core.dir/test/test_concatenation.cpp.o
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/test_templmatch.cpp.o
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/test_color.cpp.o
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/test_distancetransform.cpp.o
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/test_canny.cpp.o
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/opencl/perf_filters.cpp.o
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/test_lsd.cpp.o
+Linking CXX executable ../../bin/opencv_test_core
+[ 45%] Built target opencv_test_core
+Scanning dependencies of target opencv_test_imgcodecs
+[ 45%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_test_imgcodecs.dir/test/test_grfmt.cpp.o
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/test_imgwarp.cpp.o
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/test_cvtyuv.cpp.o
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/opencl/perf_matchTemplate.cpp.o
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/test_pc.cpp.o
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/test_imgwarp_strict.cpp.o
+[ 45%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_test_imgcodecs.dir/test/test_drawing.cpp.o
+[ 45%] Building CXX object modules/imgcodecs/CMakeFiles/opencv_test_imgcodecs.dir/test/test_main.cpp.o
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/test_houghLines.cpp.o
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/opencl/perf_color.cpp.o
+Linking CXX executable ../../bin/opencv_test_imgcodecs
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/perf_main.cpp.o
+[ 45%] Built target opencv_test_imgcodecs
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/perf_matchTemplate.cpp.o
+Scanning dependencies of target opencv_perf_videoio
+[ 45%] Building CXX object modules/videoio/CMakeFiles/opencv_perf_videoio.dir/perf/perf_output.cpp.o
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/test_watershed.cpp.o
+Scanning dependencies of target opencv_test_videoio
+[ 45%] Building CXX object modules/videoio/CMakeFiles/opencv_test_videoio.dir/test/test_fourcc.cpp.o
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/test_approxpoly.cpp.o
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_perf_imgproc.dir/perf/perf_floodfill.cpp.o
+[ 45%] Building CXX object modules/imgproc/CMakeFiles/opencv_test_imgproc.dir/test/test_floodfill.cpp.o
+[ 45%] Building CXX object modules/videoio/CMakeFiles/opencv_perf_videoio.dir/perf/perf_input.cpp.o
+Linking CXX executable ../../bin/opencv_test_imgproc
+[ 45%] Building CXX object modules/videoio/CMakeFiles/opencv_test_videoio.dir/test/test_ffmpeg.cpp.o
+[ 45%] Built target opencv_test_imgproc
+[ 45%] Building CXX object modules/videoio/CMakeFiles/opencv_test_videoio.dir/test/test_positioning.cpp.o
+Linking CXX executable ../../bin/opencv_perf_imgproc
+Scanning dependencies of target opencv_test_highgui
+[ 45%] Building CXX object modules/videoio/CMakeFiles/opencv_perf_videoio.dir/perf/perf_main.cpp.o
+[ 45%] Building CXX object modules/highgui/CMakeFiles/opencv_test_highgui.dir/test/test_gui.cpp.o
+[ 45%] Building CXX object modules/videoio/CMakeFiles/opencv_test_videoio.dir/test/test_main.cpp.o
+Linking CXX executable ../../bin/opencv_perf_videoio
+[ 45%] Building CXX object modules/videoio/CMakeFiles/opencv_test_videoio.dir/test/test_video_pos.cpp.o
+[ 45%] Built target opencv_perf_imgproc
+[ 45%] Building CXX object modules/videoio/CMakeFiles/opencv_test_videoio.dir/test/test_basic_props.cpp.o
+[ 45%] Building CXX object modules/highgui/CMakeFiles/opencv_test_highgui.dir/test/test_main.cpp.o
+[ 45%] Building CXX object modules/videoio/CMakeFiles/opencv_test_videoio.dir/test/test_video_io.cpp.o
+[ 45%] Built target opencv_perf_videoio
+Scanning dependencies of target opencv_test_ml
+[ 45%] Building CXX object modules/ml/CMakeFiles/opencv_test_ml.dir/test/test_gbttest.cpp.o
+[ 45%] Building CXX object modules/videoio/CMakeFiles/opencv_test_videoio.dir/test/test_framecount.cpp.o
+Linking CXX executable ../../bin/opencv_test_highgui
+[ 45%] Built target opencv_test_highgui
+[ 45%] Building CXX object modules/ml/CMakeFiles/opencv_test_ml.dir/test/test_main.cpp.o
+[ 45%] Building CXX object modules/ml/CMakeFiles/opencv_test_ml.dir/test/test_lr.cpp.o
+[ 45%] [ 45%] Building CXX object modules/ml/CMakeFiles/opencv_test_ml.dir/test/test_emknearestkmeans.cpp.o
+Building CXX object modules/ml/CMakeFiles/opencv_test_ml.dir/test/test_mltests2.cpp.o
+Linking CXX executable ../../bin/opencv_test_videoio
+[ 45%] Building CXX object modules/ml/CMakeFiles/opencv_test_ml.dir/test/test_mltests.cpp.o
+[ 45%] Built target opencv_test_videoio
+Scanning dependencies of target opencv_perf_features2d
+[ 45%] Building CXX object modules/features2d/CMakeFiles/opencv_perf_features2d.dir/perf/perf_fast.cpp.o
+[ 45%] Building CXX object modules/ml/CMakeFiles/opencv_test_ml.dir/test/test_save_load.cpp.o
+[ 45%] Building CXX object modules/features2d/CMakeFiles/opencv_perf_features2d.dir/perf/perf_orb.cpp.o
+[ 45%] Building CXX object modules/features2d/CMakeFiles/opencv_perf_features2d.dir/perf/perf_batchDistance.cpp.o
+Linking CXX executable ../../bin/opencv_test_ml
+[ 45%] Built target opencv_test_ml
+Scanning dependencies of target opencv_test_features2d
+[ 45%] Building CXX object modules/features2d/CMakeFiles/opencv_test_features2d.dir/test/test_detectors_regression.cpp.o
+[ 50%] Building CXX object modules/features2d/CMakeFiles/opencv_test_features2d.dir/test/test_mser.cpp.o
+[ 50%] Building CXX object modules/features2d/CMakeFiles/opencv_perf_features2d.dir/perf/opencl/perf_brute_force_matcher.cpp.o
+[ 50%] Building CXX object modules/features2d/CMakeFiles/opencv_test_features2d.dir/test/test_brisk.cpp.o
+[ 50%] Generating opencl_kernels_calib3d.cpp, opencl_kernels_calib3d.hpp
+Scanning dependencies of target opencv_calib3d
+[ 50%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/posit.cpp.o
+[ 50%] Building CXX object modules/features2d/CMakeFiles/opencv_test_features2d.dir/test/test_descriptors_regression.cpp.o
+[ 50%] Building CXX object modules/features2d/CMakeFiles/opencv_test_features2d.dir/test/ocl/test_brute_force_matcher.cpp.o
+[ 50%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/calibration.cpp.o
+[ 50%] [ 50%] Building CXX object modules/features2d/CMakeFiles/opencv_test_features2d.dir/test/test_matchers_algorithmic.cpp.o
+Building CXX object modules/features2d/CMakeFiles/opencv_perf_features2d.dir/perf/opencl/perf_fast.cpp.o
+Scanning dependencies of target opencv_perf_objdetect
+[ 50%] Building CXX object modules/objdetect/CMakeFiles/opencv_perf_objdetect.dir/perf/opencl/perf_cascades.cpp.o
+[ 50%] Building CXX object modules/features2d/CMakeFiles/opencv_test_features2d.dir/test/test_main.cpp.o
+[ 50%] Building CXX object modules/features2d/CMakeFiles/opencv_test_features2d.dir/test/test_nearestneighbors.cpp.o
+[ 50%] Building CXX object modules/features2d/CMakeFiles/opencv_perf_features2d.dir/perf/opencl/perf_orb.cpp.o
+[ 50%] Building CXX object modules/features2d/CMakeFiles/opencv_test_features2d.dir/test/test_keypoints.cpp.o
+[ 50%] Building CXX object modules/features2d/CMakeFiles/opencv_test_features2d.dir/test/test_rotation_and_scale_invariance.cpp.o
+[ 50%] Building CXX object modules/objdetect/CMakeFiles/opencv_perf_objdetect.dir/perf/opencl/perf_hogdetect.cpp.o
+[ 50%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/fundam.cpp.o
+[ 50%] Building CXX object modules/features2d/CMakeFiles/opencv_test_features2d.dir/test/test_fast.cpp.o
+[ 50%] Building CXX object modules/features2d/CMakeFiles/opencv_perf_features2d.dir/perf/perf_main.cpp.o
+[ 50%] Building CXX object modules/objdetect/CMakeFiles/opencv_perf_objdetect.dir/perf/perf_main.cpp.o
+Linking CXX executable ../../bin/opencv_perf_features2d
+Linking CXX executable ../../bin/opencv_perf_objdetect
+[ 50%] Building CXX object modules/features2d/CMakeFiles/opencv_test_features2d.dir/test/test_orb.cpp.o
+[ 50%] Built target opencv_perf_objdetect
+Scanning dependencies of target opencv_test_objdetect
+[ 50%] Built target opencv_perf_features2d
+[ 50%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/ptsetreg.cpp.o
+[ 50%] Building CXX object modules/objdetect/CMakeFiles/opencv_test_objdetect.dir/test/test_main.cpp.o
+Linking CXX executable ../../bin/opencv_test_features2d
+[ 50%] Building CXX object modules/objdetect/CMakeFiles/opencv_test_objdetect.dir/test/test_cascadeandhog.cpp.o
+[ 50%] Built target opencv_test_features2d
+[ 50%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/checkchessboard.cpp.o
+Scanning dependencies of target opencv_perf_photo
+[ 50%] Building CXX object modules/photo/CMakeFiles/opencv_perf_photo.dir/perf/perf_cuda.cpp.o
+[ 50%] Building CXX object modules/photo/CMakeFiles/opencv_perf_photo.dir/perf/perf_inpaint.cpp.o
+[ 50%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/fisheye.cpp.o
+[ 50%] Building CXX object modules/objdetect/CMakeFiles/opencv_test_objdetect.dir/test/opencl/test_hogdetector.cpp.o
+[ 50%] Building CXX object modules/photo/CMakeFiles/opencv_perf_photo.dir/perf/opencl/perf_denoising.cpp.o
+Scanning dependencies of target opencv_test_photo
+[ 50%] Building CXX object modules/photo/CMakeFiles/opencv_test_photo.dir/test/test_npr.cpp.o
+Linking CXX executable ../../bin/opencv_test_objdetect
+[ 54%] Building CXX object modules/photo/CMakeFiles/opencv_perf_photo.dir/perf/perf_main.cpp.o
+[ 54%] Built target opencv_test_objdetect
+Scanning dependencies of target opencv_perf_video
+Linking CXX executable ../../bin/opencv_perf_photo
+[ 54%] Building CXX object modules/video/CMakeFiles/opencv_perf_video.dir/perf/perf_tvl1optflow.cpp.o
+[ 54%] Built target opencv_perf_photo
+[ 54%] Building CXX object modules/video/CMakeFiles/opencv_perf_video.dir/perf/perf_optflowpyrlk.cpp.o
+[ 54%] Building CXX object modules/photo/CMakeFiles/opencv_test_photo.dir/test/test_cloning.cpp.o
+[ 54%] Building CXX object modules/video/CMakeFiles/opencv_perf_video.dir/perf/perf_ecc.cpp.o
+[ 54%] Building CXX object modules/photo/CMakeFiles/opencv_test_photo.dir/test/test_denoising.cuda.cpp.o
+[ 54%] Building CXX object modules/photo/CMakeFiles/opencv_test_photo.dir/test/ocl/test_denoising.cpp.o
+[ 54%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/compat_stereo.cpp.o
+[ 54%] Building CXX object modules/video/CMakeFiles/opencv_perf_video.dir/perf/opencl/perf_motempl.cpp.o
+[ 54%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/calibinit.cpp.o
+[ 54%] Building CXX object modules/video/CMakeFiles/opencv_perf_video.dir/perf/opencl/perf_optflow_pyrlk.cpp.o
+[ 54%] Building CXX object modules/video/CMakeFiles/opencv_perf_video.dir/perf/opencl/perf_bgfg_mog2.cpp.o
+[ 54%] Building CXX object modules/photo/CMakeFiles/opencv_test_photo.dir/test/test_decolor.cpp.o
+[ 54%] Building CXX object modules/video/CMakeFiles/opencv_perf_video.dir/perf/opencl/perf_optflow_farneback.cpp.o
+[ 54%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/stereobm.cpp.o
+[ 58%] Building CXX object modules/photo/CMakeFiles/opencv_test_photo.dir/test/test_denoising.cpp.o
+[ 58%] Building CXX object modules/video/CMakeFiles/opencv_perf_video.dir/perf/opencl/perf_optflow_dualTVL1.cpp.o
+[ 58%] Building CXX object modules/photo/CMakeFiles/opencv_test_photo.dir/test/test_main.cpp.o
+[ 58%] Building CXX object modules/photo/CMakeFiles/opencv_test_photo.dir/test/test_denoise_tvl1.cpp.o
+[ 58%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/circlesgrid.cpp.o
+[ 58%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/stereosgbm.cpp.o
+[ 58%] Building CXX object modules/photo/CMakeFiles/opencv_test_photo.dir/test/test_inpaint.cpp.o
+[ 58%] Building CXX object modules/photo/CMakeFiles/opencv_test_photo.dir/test/test_hdr.cpp.o
+[ 58%] Building CXX object modules/video/CMakeFiles/opencv_perf_video.dir/perf/perf_main.cpp.o
+Linking CXX executable ../../bin/opencv_perf_video
+Scanning dependencies of target opencv_test_video
+[ 58%] Built target opencv_perf_video
+[ 58%] [ 58%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/levmarq.cpp.o
+Building CXX object modules/video/CMakeFiles/opencv_test_video.dir/test/test_accum.cpp.o
+[ 58%] Building CXX object modules/video/CMakeFiles/opencv_test_video.dir/test/test_optflowpyrlk.cpp.o
+[ 58%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/dls.cpp.o
+[ 58%] Building CXX object modules/video/CMakeFiles/opencv_test_video.dir/test/test_tvl1optflow.cpp.o
+Linking CXX executable ../../bin/opencv_test_photo
+[ 58%] Built target opencv_test_photo
+[ 58%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/quadsubpix.cpp.o
+[ 58%] Building CXX object modules/video/CMakeFiles/opencv_test_video.dir/test/test_estimaterigid.cpp.o
+[ 58%] Building CXX object modules/video/CMakeFiles/opencv_test_video.dir/test/ocl/test_optflowpyrlk.cpp.o
+Scanning dependencies of target opencv_test_shape
+[ 58%] Building CXX object modules/shape/CMakeFiles/opencv_test_shape.dir/test/test_shape.cpp.o
+[ 58%] Building CXX object modules/video/CMakeFiles/opencv_test_video.dir/test/ocl/test_bgfg_mog2.cpp.o
+Scanning dependencies of target opencv_perf_superres
+[ 58%] Building CXX object modules/superres/CMakeFiles/opencv_perf_superres.dir/perf/perf_superres.cpp.o
+[ 58%] Building CXX object modules/shape/CMakeFiles/opencv_test_shape.dir/test/test_main.cpp.o
+[ 58%] Building CXX object modules/shape/CMakeFiles/opencv_test_shape.dir/test/test_hausdorff.cpp.o
+[ 58%] Building CXX object modules/video/CMakeFiles/opencv_test_video.dir/test/ocl/test_optflow_farneback.cpp.o
+[ 58%] Building CXX object modules/shape/CMakeFiles/opencv_test_shape.dir/test/test_emdl1.cpp.o
+[ 58%] [ 58%] Building CXX object modules/superres/CMakeFiles/opencv_perf_superres.dir/perf/perf_main.cpp.o
+Building CXX object modules/shape/CMakeFiles/opencv_test_shape.dir/test/test_precomp.cpp.o
+Linking CXX executable ../../bin/opencv_test_shape
+Linking CXX executable ../../bin/opencv_perf_superres
+[ 58%] Built target opencv_test_shape
+[ 58%] Building CXX object modules/video/CMakeFiles/opencv_test_video.dir/test/ocl/test_optflow_tvl1flow.cpp.o
+[ 58%] Built target opencv_perf_superres
+[ 58%] Building CXX object modules/video/CMakeFiles/opencv_test_video.dir/test/test_kalman.cpp.o
+[ 58%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/polynom_solver.cpp.o
+[ 58%] Building CXX object modules/video/CMakeFiles/opencv_test_video.dir/test/test_main.cpp.o
+[ 58%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/solvepnp.cpp.o
+Scanning dependencies of target opencv_test_superres
+[ 58%] Building CXX object modules/superres/CMakeFiles/opencv_test_superres.dir/test/test_superres.cpp.o
+Scanning dependencies of target opencv_test_viz
+[ 58%] Building CXX object modules/viz/CMakeFiles/opencv_test_viz.dir/test/test_viz3d.cpp.o
+[ 58%] Building CXX object modules/video/CMakeFiles/opencv_test_video.dir/test/test_ecc.cpp.o
+[ 58%] Building CXX object modules/viz/CMakeFiles/opencv_test_viz.dir/test/test_tutorial3.cpp.o
+[ 58%] Building CXX object modules/viz/CMakeFiles/opencv_test_viz.dir/test/test_tutorial2.cpp.o
+[ 58%] Building CXX object modules/superres/CMakeFiles/opencv_test_superres.dir/test/test_main.cpp.o
+[ 58%] Building CXX object modules/viz/CMakeFiles/opencv_test_viz.dir/test/test_main.cpp.o
+Linking CXX executable ../../bin/opencv_test_superres
+[ 58%] Building CXX object modules/viz/CMakeFiles/opencv_test_viz.dir/test/tests_simple.cpp.o
+[ 58%] Built target opencv_test_superres
+[ 58%] Building CXX object modules/viz/CMakeFiles/opencv_test_viz.dir/test/test_precomp.cpp.o
+[ 62%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/upnp.cpp.o
+[ 62%] Building CXX object modules/video/CMakeFiles/opencv_test_video.dir/test/test_camshift.cpp.o
+[ 62%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/p3p.cpp.o
+Linking CXX executable ../../bin/opencv_test_video
+[ 62%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/five-point.cpp.o
+[ 62%] Built target opencv_test_video
+[ 62%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/compat_ptsetreg.cpp.o
+Linking CXX executable ../../bin/opencv_test_viz
+[ 62%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/triangulate.cpp.o
+[ 62%] Built target opencv_test_viz
+[ 62%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/homography_decomp.cpp.o
+[ 62%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/src/epnp.cpp.o
+[ 62%] Building CXX object modules/calib3d/CMakeFiles/opencv_calib3d.dir/opencl_kernels_calib3d.cpp.o
+Linking CXX shared library ../../lib/libopencv_calib3d.so
+[ 62%] Built target opencv_calib3d
+Scanning dependencies of target opencv_test_calib3d
+Scanning dependencies of target opencv_perf_calib3d
+[ 62%] Generating opencl_kernels_stitching.cpp, opencl_kernels_stitching.hpp
+Scanning dependencies of target opencv_stitching
+[ 62%] Building CXX object modules/calib3d/CMakeFiles/opencv_perf_calib3d.dir/perf/perf_pnp.cpp.o
+[ 62%] Generating core+Core.java, core+Algorithm.java, core.cpp
+[ 62%] Building CXX object modules/stitching/CMakeFiles/opencv_stitching.dir/src/exposure_compensate.cpp.o
+[ 62%] Building CXX object modules/calib3d/CMakeFiles/opencv_test_calib3d.dir/test/test_chesscorners_badarg.cpp.o
+SKIP:Ptr_Algorithm getAlgorithm(String name)	 due to RET typePtr_Algorithm
+SKIP:void setAlgorithm(String name, Ptr_Algorithm value)	 due to ARG typePtr_Algorithm/I
+SKIP:void getParams(vector_String& names)	 due to ARG typevector_String/O
+SKIP:static Ptr_Algorithm _create(String name)	 due to RET typePtr_Algorithm
+SKIP:static void getList(vector_String& algorithms)	 due to ARG typevector_String/O
+[ 62%] Generating imgproc+LineSegmentDetector.java, imgproc+CLAHE.java, imgproc+Imgproc.java, imgproc+Subdiv2D.java, imgproc.cpp
+SKIP:void HuMoments(Moments m, Mat& hu)	 due to ARG typeMoments/I
+SKIP:Moments moments(Mat array, bool binaryImage = false)	 due to RET typeMoments
+[ 62%] Generating objdetect+BaseCascadeClassifier.java, objdetect+Objdetect.java, objdetect+CascadeClassifier.java, objdetect+HOGDescriptor.java, objdetect.cpp
+SKIP:bool read(FileNode node)	 due to ARG typeFileNode/I
+[ 62%] Generating features2d+DescriptorExtractor.java, features2d+Features2d.java, features2d+FeatureDetector.java, features2d+DescriptorMatcher.java, features2d.cpp
+[ 62%] Generating video+KalmanFilter.java, video+DenseOpticalFlow.java, video+BackgroundSubtractorMOG2.java, video+Video.java, video+BackgroundSubtractorKNN.java, video+BackgroundSubtractor.java, video.cpp
+[ 62%] Generating imgcodecs+Imgcodecs.java, imgcodecs.cpp
+[ 62%] Generating videoio+VideoCapture.java, videoio+Videoio.java, videoio.cpp
+[ 62%] Generating calib3d+StereoMatcher.java, calib3d+Calib3d.java, calib3d+StereoSGBM.java, calib3d+StereoBM.java, calib3d.cpp
+[ 62%] Generating photo+AlignMTB.java, photo+MergeRobertson.java, photo+CalibrateRobertson.java, photo+MergeMertens.java, photo+AlignExposures.java, photo+TonemapDrago.java, photo+TonemapReinhard.java, photo+TonemapMantiuk.java, photo+CalibrateDebevec.java, photo+MergeExposures.java, photo+Photo.java, photo+TonemapDurand.java, photo+MergeDebevec.java, photo+CalibrateCRF.java, photo+Tonemap.java, photo.cpp
+[ 62%] Generating core+Core-jdoc.java, core+Algorithm-jdoc.java, imgproc+LineSegmentDetector-jdoc.java, imgproc+CLAHE-jdoc.java, imgproc+Imgproc-jdoc.java, imgproc+Subdiv2D-jdoc.java, objdetect+BaseCascadeClassifier-jdoc.java, objdetect+Objdetect-jdoc.java, objdetect+CascadeClassifier-jdoc.java, objdetect+HOGDescriptor-jdoc.java, features2d+DescriptorExtractor-jdoc.java, features2d+Features2d-jdoc.java, features2d+FeatureDetector-jdoc.java, features2d+DescriptorMatcher-jdoc.java, video+KalmanFilter-jdoc.java, video+DenseOpticalFlow-jdoc.java, video+BackgroundSubtractorMOG2-jdoc.java, video+Video-jdoc.java, video+BackgroundSubtractorKNN-jdoc.java, video+BackgroundSubtractor-jdoc.java, imgcodecs+Imgcodecs-jdoc.java, videoio+VideoCapture-jdoc.java, videoio+Videoio-jdoc.java, calib3d+StereoMatcher-jdoc.java, calib3d+Calib3d-jdoc.java, calib3d+StereoSGBM-jdoc.java, calib3d+StereoBM-jdoc.java, photo+AlignMTB-jdoc.java, photo+MergeRobertson-jdoc.java, photo+CalibrateRobertson-jdoc.java, photo+MergeMertens-jdoc.java, photo+AlignExposures-jdoc.java, photo+TonemapDrago-jdoc.java, photo+TonemapReinhard-jdoc.java, photo+TonemapMantiuk-jdoc.java, photo+CalibrateDebevec-jdoc.java, photo+MergeExposures-jdoc.java, photo+Photo-jdoc.java, photo+TonemapDurand-jdoc.java, photo+MergeDebevec-jdoc.java, photo+CalibrateCRF-jdoc.java, photo+Tonemap-jdoc.java, core+RotatedRect-jdoc.java, core+MatOfRect-jdoc.java, core+Range-jdoc.java, utils+Converters-jdoc.java, core+Point-jdoc.java, core+MatOfPoint3f-jdoc.java, core+MatOfByte-jdoc.java, core+DMatch-jdoc.java, core+MatOfKeyPoint-jdoc.java, core+MatOfPoint2f-jdoc.java, core+MatOfPoint3-jdoc.java, core+MatOfInt-jdoc.java, core+Scalar-jdoc.java, core+Rect-jdoc.java, core+Size-jdoc.java, core+MatOfInt4-jdoc.java, core+MatOfDMatch-jdoc.java, core+MatOfPoint-jdoc.java, core+Mat-jdoc.java, core+CvException-jdoc.java, core+CvType-jdoc.java, core+Point3-jdoc.java, core+TermCriteria-jdoc.java, core+KeyPoint-jdoc.java, core+MatOfFloat-jdoc.java, core+MatOfFloat4-jdoc.java, core+MatOfFloat6-jdoc.java, core+MatOfDouble-jdoc.java
+[ 62%] Building CXX object modules/calib3d/CMakeFiles/opencv_test_calib3d.dir/test/test_posit.cpp.o
+[ 62%] Building CXX object modules/calib3d/CMakeFiles/opencv_test_calib3d.dir/test/test_homography.cpp.o
+RST Parser Summary:
+  Total sections:   992
+  Skipped sections: 58
+  Parsed  sections: 921
+  Invalid sections: 13
+
+  classes documented:           81
+  structs documented:           32
+        C functions documented: 406
+      C++ functions documented: 804
+  Python2 functions documented: 279
+
+Javadoc Generator Summary:
+  Total markers:        973
+  Undocumented markers: 285
+  Generated comments:   688
+
+  Documented params:    2199
+  Undocumented params:  107
+
+[ 62%] Generating src/org/opencv/core/Core.java
+[ 62%] Generating src/org/opencv/core/Algorithm.java
+[ 62%] Building CXX object modules/stitching/CMakeFiles/opencv_stitching.dir/src/camera.cpp.o
+[ 62%] Generating src/org/opencv/imgproc/LineSegmentDetector.java
+[ 62%] Generating src/org/opencv/imgproc/CLAHE.java
+[ 62%] Generating src/org/opencv/imgproc/Imgproc.java
+[ 62%] Generating src/org/opencv/imgproc/Subdiv2D.java
+[ 62%] Generating src/org/opencv/objdetect/BaseCascadeClassifier.java
+[ 62%] Generating src/org/opencv/objdetect/Objdetect.java
+[ 62%] Generating src/org/opencv/objdetect/CascadeClassifier.java
+[ 62%] Generating src/org/opencv/objdetect/HOGDescriptor.java
+[ 62%] Generating src/org/opencv/features2d/DescriptorExtractor.java
+[ 62%] Generating src/org/opencv/features2d/Features2d.java
+[ 62%] Generating src/org/opencv/features2d/FeatureDetector.java
+[ 62%] Generating src/org/opencv/features2d/DescriptorMatcher.java
+[ 62%] Generating src/org/opencv/video/KalmanFilter.java
+[ 66%] Generating src/org/opencv/video/DenseOpticalFlow.java
+[ 66%] Generating src/org/opencv/video/BackgroundSubtractorMOG2.java
+[ 66%] Generating src/org/opencv/video/Video.java
+[ 66%] Generating src/org/opencv/video/BackgroundSubtractorKNN.java
+[ 66%] Generating src/org/opencv/video/BackgroundSubtractor.java
+[ 66%] Generating src/org/opencv/imgcodecs/Imgcodecs.java
+[ 66%] Generating src/org/opencv/videoio/VideoCapture.java
+[ 66%] Generating src/org/opencv/videoio/Videoio.java
+[ 66%] Generating src/org/opencv/calib3d/StereoMatcher.java
+[ 66%] Building CXX object modules/calib3d/CMakeFiles/opencv_perf_calib3d.dir/perf/perf_cicrlesGrid.cpp.o
+[ 66%] Generating src/org/opencv/calib3d/Calib3d.java
+[ 66%] Generating src/org/opencv/calib3d/StereoSGBM.java
+[ 66%] Generating src/org/opencv/calib3d/StereoBM.java
+[ 66%] Generating src/org/opencv/photo/AlignMTB.java
+[ 66%] Generating src/org/opencv/photo/MergeRobertson.java
+[ 66%] Generating src/org/opencv/photo/CalibrateRobertson.java
+[ 66%] Generating src/org/opencv/photo/MergeMertens.java
+[ 66%] Generating src/org/opencv/photo/AlignExposures.java
+[ 66%] Generating src/org/opencv/photo/TonemapDrago.java
+[ 66%] Generating src/org/opencv/photo/TonemapReinhard.java
+[ 66%] Generating src/org/opencv/photo/TonemapMantiuk.java
+[ 66%] Generating src/org/opencv/photo/CalibrateDebevec.java
+[ 66%] Generating src/org/opencv/photo/MergeExposures.java
+[ 66%] Generating src/org/opencv/photo/Photo.java
+[ 66%] Generating src/org/opencv/photo/TonemapDurand.java
+[ 66%] Generating src/org/opencv/photo/MergeDebevec.java
+[ 66%] Generating src/org/opencv/photo/CalibrateCRF.java
+[ 66%] Generating src/org/opencv/photo/Tonemap.java
+[ 66%] Generating src/org/opencv/core/RotatedRect.java
+[ 66%] Generating src/org/opencv/core/MatOfRect.java
+[ 66%] Generating src/org/opencv/core/Range.java
+[ 66%] Generating src/org/opencv/utils/Converters.java
+[ 66%] Generating src/org/opencv/core/Point.java
+[ 66%] Generating src/org/opencv/core/MatOfPoint3f.java
+[ 66%] Generating src/org/opencv/core/MatOfByte.java
+[ 66%] Generating src/org/opencv/core/DMatch.java
+[ 66%] Generating src/org/opencv/core/MatOfKeyPoint.java
+[ 66%] Generating src/org/opencv/core/MatOfPoint2f.java
+[ 66%] Generating src/org/opencv/core/MatOfPoint3.java
+[ 66%] Generating src/org/opencv/core/MatOfInt.java
+[ 66%] Generating src/org/opencv/core/Scalar.java
+[ 66%] Generating src/org/opencv/core/Rect.java
+[ 66%] Generating src/org/opencv/core/Size.java
+[ 66%] Generating src/org/opencv/core/MatOfInt4.java
+[ 66%] Generating src/org/opencv/core/MatOfDMatch.java
+[ 66%] Generating src/org/opencv/core/MatOfPoint.java
+[ 66%] Generating src/org/opencv/core/Mat.java
+[ 70%] Generating src/org/opencv/core/CvException.java
+[ 70%] Generating src/org/opencv/core/CvType.java
+[ 70%] Generating src/org/opencv/core/Point3.java
+[ 70%] Generating src/org/opencv/core/TermCriteria.java
+[ 70%] Generating src/org/opencv/core/KeyPoint.java
+[ 70%] Generating src/org/opencv/core/MatOfFloat.java
+[ 70%] Generating src/org/opencv/core/MatOfFloat4.java
+[ 70%] Generating src/org/opencv/core/MatOfFloat6.java
+[ 70%] Generating src/org/opencv/core/MatOfDouble.java
+[ 70%] Generating opencv-300.jar
+[ 70%] Building CXX object modules/stitching/CMakeFiles/opencv_stitching.dir/src/warpers.cpp.o
+[ 70%] Building CXX object modules/calib3d/CMakeFiles/opencv_test_calib3d.dir/test/test_modelest.cpp.o
+[ 70%] Building CXX object modules/calib3d/CMakeFiles/opencv_test_calib3d.dir/test/test_chesscorners_timing.cpp.o
+[ 70%] Building CXX object modules/calib3d/CMakeFiles/opencv_test_calib3d.dir/test/test_affine3.cpp.o
+[ 70%] Building CXX object modules/calib3d/CMakeFiles/opencv_perf_calib3d.dir/perf/opencl/perf_stereobm.cpp.o
+[ 70%] Building CXX object modules/stitching/CMakeFiles/opencv_stitching.dir/src/seam_finders.cpp.o
+[ 70%] Building CXX object modules/calib3d/CMakeFiles/opencv_test_calib3d.dir/test/test_compose_rt.cpp.o
+[ 70%] Building CXX object modules/calib3d/CMakeFiles/opencv_perf_calib3d.dir/perf/perf_main.cpp.o
+Linking CXX executable ../../bin/opencv_perf_calib3d
+[ 70%] Built target opencv_perf_calib3d
+[ 70%] Building CXX object modules/calib3d/CMakeFiles/opencv_test_calib3d.dir/test/test_affine3d_estimator.cpp.o
+[ 70%] Building CXX object modules/stitching/CMakeFiles/opencv_stitching.dir/src/blenders.cpp.o
+[ 70%] Building CXX object modules/calib3d/CMakeFiles/opencv_test_calib3d.dir/test/test_fisheye.cpp.o
+
+BUILD SUCCESSFUL
+Total time: 18 seconds
+Scanning dependencies of target opencv_java
+[ 70%] Building CXX object modules/java/CMakeFiles/opencv_java.dir/generator/src/cpp/utils.cpp.o
+[ 70%] Building CXX object modules/java/CMakeFiles/opencv_java.dir/generator/src/cpp/converters.cpp.o
+[ 70%] Building CXX object modules/java/CMakeFiles/opencv_java.dir/generator/src/cpp/Mat.cpp.o
+[ 70%] Building CXX object modules/stitching/CMakeFiles/opencv_stitching.dir/src/timelapsers.cpp.o
+[ 70%] Building CXX object modules/stitching/CMakeFiles/opencv_stitching.dir/src/stitcher.cpp.o
+Scanning dependencies of target opencv_videostab
+[ 70%] Building CXX object modules/videostab/CMakeFiles/opencv_videostab.dir/src/outlier_rejection.cpp.o
+[ 70%] Building CXX object modules/calib3d/CMakeFiles/opencv_test_calib3d.dir/test/test_decompose_projection.cpp.o
+[ 70%] Building CXX object modules/java/CMakeFiles/opencv_java.dir/generator/src/cpp/core_manual.cpp.o
+[ 70%] Building CXX object modules/calib3d/CMakeFiles/opencv_test_calib3d.dir/test/test_cornerssubpix.cpp.o
+[ 70%] Building CXX object modules/java/CMakeFiles/opencv_java.dir/generator/src/cpp/jni_part.cpp.o
+[ 70%] Building CXX object modules/videostab/CMakeFiles/opencv_videostab.dir/src/frame_source.cpp.o
+[ 70%] Building CXX object modules/videostab/CMakeFiles/opencv_videostab.dir/src/inpainting.cpp.o
+[ 70%] Building CXX object modules/java/CMakeFiles/opencv_java.dir/core.cpp.o
+[ 75%] Building CXX object modules/calib3d/CMakeFiles/opencv_test_calib3d.dir/test/test_cameracalibration_badarg.cpp.o
+[ 75%] Building CXX object modules/stitching/CMakeFiles/opencv_stitching.dir/src/util.cpp.o
+[ 75%] Building CXX object modules/stitching/CMakeFiles/opencv_stitching.dir/src/autocalib.cpp.o
+[ 75%] Building CXX object modules/calib3d/CMakeFiles/opencv_test_calib3d.dir/test/test_undistort_badarg.cpp.o
+[ 75%] Building CXX object modules/java/CMakeFiles/opencv_java.dir/imgproc.cpp.o
+[ 75%] Building CXX object modules/videostab/CMakeFiles/opencv_videostab.dir/src/wobble_suppression.cpp.o
+[ 75%] Building CXX object modules/stitching/CMakeFiles/opencv_stitching.dir/src/motion_estimators.cpp.o
+[ 75%] Building CXX object modules/videostab/CMakeFiles/opencv_videostab.dir/src/optical_flow.cpp.o
+[ 75%] Building CXX object modules/videostab/CMakeFiles/opencv_videostab.dir/src/global_motion.cpp.o
+[ 75%] Building CXX object modules/calib3d/CMakeFiles/opencv_test_calib3d.dir/test/test_solvepnp_ransac.cpp.o
+[ 75%] Building CXX object modules/calib3d/CMakeFiles/opencv_test_calib3d.dir/test/test_main.cpp.o
+[ 75%] Building CXX object modules/calib3d/CMakeFiles/opencv_test_calib3d.dir/test/test_fundam.cpp.o
+[ 75%] Building CXX object modules/videostab/CMakeFiles/opencv_videostab.dir/src/deblurring.cpp.o
+[ 75%] Building CXX object modules/java/CMakeFiles/opencv_java.dir/objdetect.cpp.o
+[ 75%] Building CXX object modules/stitching/CMakeFiles/opencv_stitching.dir/src/matchers.cpp.o
+[ 75%] Building CXX object modules/videostab/CMakeFiles/opencv_videostab.dir/src/fast_marching.cpp.o
+[ 75%] Building CXX object modules/videostab/CMakeFiles/opencv_videostab.dir/src/stabilizer.cpp.o
+[ 75%] Building CXX object modules/java/CMakeFiles/opencv_java.dir/features2d.cpp.o
+[ 75%] Building CXX object modules/calib3d/CMakeFiles/opencv_test_calib3d.dir/test/test_chesscorners.cpp.o
+[ 75%] Building CXX object modules/stitching/CMakeFiles/opencv_stitching.dir/opencl_kernels_stitching.cpp.o
+[ 75%] Building CXX object modules/calib3d/CMakeFiles/opencv_test_calib3d.dir/test/test_undistort.cpp.o
+[ 75%] Building CXX object modules/videostab/CMakeFiles/opencv_videostab.dir/src/log.cpp.o
+Linking CXX shared library ../../lib/libopencv_stitching.so
+[ 75%] Building CXX object modules/videostab/CMakeFiles/opencv_videostab.dir/src/motion_stabilizing.cpp.o
+[ 75%] Building CXX object modules/java/CMakeFiles/opencv_java.dir/video.cpp.o
+[ 75%] Built target opencv_stitching
+[ 75%] Building CXX object modules/calib3d/CMakeFiles/opencv_test_calib3d.dir/test/test_undistort_points.cpp.o
+Scanning dependencies of target opencv_traincascade
+[ 75%] Building CXX object apps/traincascade/CMakeFiles/opencv_traincascade.dir/old_ml_boost.cpp.o
+Linking CXX shared library ../../lib/libopencv_videostab.so
+[ 75%] Built target opencv_videostab
+[ 75%] Building CXX object modules/calib3d/CMakeFiles/opencv_test_calib3d.dir/test/test_cameracalibration.cpp.o
+[ 75%] Building CXX object modules/java/CMakeFiles/opencv_java.dir/imgcodecs.cpp.o
+[ 75%] Building CXX object modules/java/CMakeFiles/opencv_java.dir/videoio.cpp.o
+[ 75%] Building CXX object modules/calib3d/CMakeFiles/opencv_test_calib3d.dir/test/test_cameracalibration_artificial.cpp.o
+[ 75%] Building CXX object modules/java/CMakeFiles/opencv_java.dir/calib3d.cpp.o
+[ 75%] Building CXX object apps/traincascade/CMakeFiles/opencv_traincascade.dir/imagestorage.cpp.o
+[ 75%] Building CXX object apps/traincascade/CMakeFiles/opencv_traincascade.dir/features.cpp.o
+[ 75%] Building CXX object modules/java/CMakeFiles/opencv_java.dir/photo.cpp.o
+[ 75%] Building CXX object modules/calib3d/CMakeFiles/opencv_test_calib3d.dir/test/test_homography_decomp.cpp.o
+[ 75%] Building CXX object modules/calib3d/CMakeFiles/opencv_test_calib3d.dir/test/test_stereomatching.cpp.o
+[ 75%] Building CXX object apps/traincascade/CMakeFiles/opencv_traincascade.dir/haarfeatures.cpp.o
+[ 75%] Building CXX object modules/calib3d/CMakeFiles/opencv_test_calib3d.dir/test/test_chessboardgenerator.cpp.o
+Linking CXX shared library ../../lib/libopencv_java300.so
+[ 75%] Built target opencv_java
+[ 75%] Building CXX object modules/calib3d/CMakeFiles/opencv_test_calib3d.dir/test/test_reproject_image_to_3d.cpp.o
+[ 75%] Building CXX object apps/traincascade/CMakeFiles/opencv_traincascade.dir/traincascade.cpp.o
+Scanning dependencies of target example_tapi_bgfg_segm
+[ 75%] Building CXX object samples/tapi/CMakeFiles/example_tapi_bgfg_segm.dir/bgfg_segm.cpp.o
+[ 75%] Building CXX object apps/traincascade/CMakeFiles/opencv_traincascade.dir/lbpfeatures.cpp.o
+[ 75%] Building CXX object modules/calib3d/CMakeFiles/opencv_test_calib3d.dir/test/opencl/test_stereobm.cpp.o
+Linking CXX executable ../../bin/tapi-example-bgfg_segm
+[ 75%] Built target example_tapi_bgfg_segm
+[ 75%] Building CXX object apps/traincascade/CMakeFiles/opencv_traincascade.dir/HOGfeatures.cpp.o
+Scanning dependencies of target example_tapi_camshift
+[ 75%] Building CXX object samples/tapi/CMakeFiles/example_tapi_camshift.dir/camshift.cpp.o
+Scanning dependencies of target example_tapi_clahe
+[ 75%] Building CXX object samples/tapi/CMakeFiles/example_tapi_clahe.dir/clahe.cpp.o
+[ 75%] Building CXX object apps/traincascade/CMakeFiles/opencv_traincascade.dir/cascadeclassifier.cpp.o
+Linking CXX executable ../../bin/tapi-example-camshift
+Linking CXX executable ../../bin/opencv_test_calib3d
+[ 75%] Built target example_tapi_camshift
+Scanning dependencies of target example_tapi_hog
+[ 75%] Building CXX object samples/tapi/CMakeFiles/example_tapi_hog.dir/hog.cpp.o
+[ 75%] Built target opencv_test_calib3d
+Scanning dependencies of target example_tapi_pyrlk_optical_flow
+[ 75%] Building CXX object samples/tapi/CMakeFiles/example_tapi_pyrlk_optical_flow.dir/pyrlk_optical_flow.cpp.o
+Linking CXX executable ../../bin/tapi-example-clahe
+[ 75%] Built target example_tapi_clahe
+[ 75%] Building CXX object apps/traincascade/CMakeFiles/opencv_traincascade.dir/boost.cpp.o
+Linking CXX executable ../../bin/tapi-example-pyrlk_optical_flow
+Linking CXX executable ../../bin/tapi-example-hog
+[ 75%] Built target example_tapi_pyrlk_optical_flow
+Scanning dependencies of target example_tapi_squares
+[ 75%] Building CXX object samples/tapi/CMakeFiles/example_tapi_squares.dir/squares.cpp.o
+[ 75%] Building CXX object apps/traincascade/CMakeFiles/opencv_traincascade.dir/old_ml_data.cpp.o
+[ 75%] Built target example_tapi_hog
+Scanning dependencies of target example_tapi_tvl1_optical_flow
+[ 75%] Building CXX object samples/tapi/CMakeFiles/example_tapi_tvl1_optical_flow.dir/tvl1_optical_flow.cpp.o
+Linking CXX executable ../../bin/tapi-example-tvl1_optical_flow
+Linking CXX executable ../../bin/tapi-example-squares
+[ 75%] Built target example_tapi_tvl1_optical_flow
+Scanning dependencies of target opencv_test_java_properties
+[ 75%] Built target opencv_test_java_properties
+Scanning dependencies of target opencv_perf_stitching
+[ 75%] Built target example_tapi_squares
+[ 75%] Building CXX object apps/traincascade/CMakeFiles/opencv_traincascade.dir/old_ml_inner_functions.cpp.o
+[ 75%] Building CXX object modules/stitching/CMakeFiles/opencv_perf_stitching.dir/perf/perf_stich.cpp.o
+[ 75%] Building CXX object apps/traincascade/CMakeFiles/opencv_traincascade.dir/old_ml_tree.cpp.o
+Scanning dependencies of target opencv_test_stitching
+[ 75%] Building CXX object modules/stitching/CMakeFiles/opencv_test_stitching.dir/test/test_blenders.cpp.o
+[ 75%] Building CXX object modules/stitching/CMakeFiles/opencv_perf_stitching.dir/perf/opencl/perf_stitch.cpp.o
+[ 75%] Building CXX object modules/stitching/CMakeFiles/opencv_test_stitching.dir/test/test_matchers.cpp.o
+[ 75%] Building CXX object modules/stitching/CMakeFiles/opencv_test_stitching.dir/test/ocl/test_warpers.cpp.o
+Linking CXX executable ../../bin/opencv_traincascade
+[ 75%] Built target opencv_traincascade
+[ 75%] Building CXX object modules/stitching/CMakeFiles/opencv_test_stitching.dir/test/test_main.cpp.o
+[ 75%] Generating pyopencv_generated_include.h, pyopencv_generated_funcs.h, pyopencv_generated_types.h, pyopencv_generated_type_reg.h, pyopencv_generated_ns_reg.h
+[ 75%] Building CXX object modules/stitching/CMakeFiles/opencv_perf_stitching.dir/perf/opencl/perf_warpers.cpp.o
+Scanning dependencies of target opencv_python2
+Scanning dependencies of target cpp-tutorial-pnp_detection
+[ 75%] Building CXX object samples/cpp/CMakeFiles/cpp-tutorial-pnp_detection.dir/tutorial_code/calib3d/real_time_pose_estimation/src/main_detection.cpp.o
+[ 79%] Building CXX object modules/python2/CMakeFiles/opencv_python2.dir/__/src2/cv2.cpp.o
+Linking CXX executable ../../bin/opencv_test_stitching
+[ 79%] Built target opencv_test_stitching
+[ 79%] Building CXX object modules/stitching/CMakeFiles/opencv_perf_stitching.dir/perf/perf_main.cpp.o
+[ 79%] Building CXX object samples/cpp/CMakeFiles/cpp-tutorial-pnp_detection.dir/tutorial_code/calib3d/real_time_pose_estimation/src/CsvReader.cpp.o
+[ 79%] Building CXX object samples/cpp/CMakeFiles/cpp-tutorial-pnp_detection.dir/tutorial_code/calib3d/real_time_pose_estimation/src/CsvWriter.cpp.o
+[ 79%] Linking CXX executable ../../bin/opencv_perf_stitching
+Building CXX object samples/cpp/CMakeFiles/cpp-tutorial-pnp_detection.dir/tutorial_code/calib3d/real_time_pose_estimation/src/ModelRegistration.cpp.o
+[ 79%] Built target opencv_perf_stitching
+Scanning dependencies of target cpp-tutorial-pnp_registration
+[ 79%] Building CXX object samples/cpp/CMakeFiles/cpp-tutorial-pnp_registration.dir/tutorial_code/calib3d/real_time_pose_estimation/src/main_registration.cpp.o
+[ 79%] Building CXX object samples/cpp/CMakeFiles/cpp-tutorial-pnp_registration.dir/tutorial_code/calib3d/real_time_pose_estimation/src/CsvReader.cpp.o
+[ 79%] Building CXX object samples/cpp/CMakeFiles/cpp-tutorial-pnp_detection.dir/tutorial_code/calib3d/real_time_pose_estimation/src/Mesh.cpp.o
+[ 79%] Building CXX object samples/cpp/CMakeFiles/cpp-tutorial-pnp_detection.dir/tutorial_code/calib3d/real_time_pose_estimation/src/Model.cpp.o
+Scanning dependencies of target example_3calibration
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_3calibration.dir/3calibration.cpp.o
+[ 79%] Building CXX object samples/cpp/CMakeFiles/cpp-tutorial-pnp_registration.dir/tutorial_code/calib3d/real_time_pose_estimation/src/CsvWriter.cpp.o
+[ 79%] Building CXX object samples/cpp/CMakeFiles/cpp-tutorial-pnp_registration.dir/tutorial_code/calib3d/real_time_pose_estimation/src/ModelRegistration.cpp.o
+[ 79%] Building CXX object samples/cpp/CMakeFiles/cpp-tutorial-pnp_detection.dir/tutorial_code/calib3d/real_time_pose_estimation/src/PnPProblem.cpp.o
+[ 79%] Building CXX object samples/cpp/CMakeFiles/cpp-tutorial-pnp_registration.dir/tutorial_code/calib3d/real_time_pose_estimation/src/Mesh.cpp.o
+[ 79%] Building CXX object samples/cpp/CMakeFiles/cpp-tutorial-pnp_registration.dir/tutorial_code/calib3d/real_time_pose_estimation/src/Model.cpp.o
+Linking CXX executable ../../bin/cpp-example-3calibration
+[ 79%] Building CXX object samples/cpp/CMakeFiles/cpp-tutorial-pnp_detection.dir/tutorial_code/calib3d/real_time_pose_estimation/src/Utils.cpp.o
+[ 79%] Built target example_3calibration
+[ 79%] Building CXX object samples/cpp/CMakeFiles/cpp-tutorial-pnp_registration.dir/tutorial_code/calib3d/real_time_pose_estimation/src/PnPProblem.cpp.o
+Scanning dependencies of target example_bgfg_segm
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_bgfg_segm.dir/bgfg_segm.cpp.o
+[ 79%] Building CXX object samples/cpp/CMakeFiles/cpp-tutorial-pnp_detection.dir/tutorial_code/calib3d/real_time_pose_estimation/src/RobustMatcher.cpp.o
+Linking CXX executable ../../bin/cpp-example-bgfg_segm
+[ 79%] Built target example_bgfg_segm
+Scanning dependencies of target example_calibration
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_calibration.dir/calibration.cpp.o
+[ 79%] Building CXX object samples/cpp/CMakeFiles/cpp-tutorial-pnp_registration.dir/tutorial_code/calib3d/real_time_pose_estimation/src/Utils.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-pnp_detection
+[ 79%] Built target cpp-tutorial-pnp_detection
+Scanning dependencies of target example_camshiftdemo
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_camshiftdemo.dir/camshiftdemo.cpp.o
+[ 79%] Building CXX object samples/cpp/CMakeFiles/cpp-tutorial-pnp_registration.dir/tutorial_code/calib3d/real_time_pose_estimation/src/RobustMatcher.cpp.o
+Linking CXX executable ../../bin/cpp-example-camshiftdemo
+[ 79%] Built target example_camshiftdemo
+Scanning dependencies of target example_cloning_demo
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_cloning_demo.dir/cloning_demo.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-pnp_registration
+[ 79%] Built target cpp-tutorial-pnp_registration
+Scanning dependencies of target example_cloning_gui
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_cloning_gui.dir/cloning_gui.cpp.o
+Linking CXX executable ../../bin/cpp-example-calibration
+Linking CXX executable ../../bin/cpp-example-cloning_demo
+[ 79%] Built target example_calibration
+Scanning dependencies of target example_connected_components
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_connected_components.dir/connected_components.cpp.o
+[ 79%] Built target example_cloning_demo
+Scanning dependencies of target example_contours2
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_contours2.dir/contours2.cpp.o
+Linking CXX executable ../../bin/cpp-example-connected_components
+[ 79%] Built target example_connected_components
+Scanning dependencies of target example_convexhull
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_convexhull.dir/convexhull.cpp.o
+Linking CXX executable ../../bin/cpp-example-cloning_gui
+[ 79%] Built target example_cloning_gui
+Scanning dependencies of target example_cout_mat
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_cout_mat.dir/cout_mat.cpp.o
+Linking CXX executable ../../bin/cpp-example-contours2
+[ 79%] Built target example_contours2
+Scanning dependencies of target example_create_mask
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_create_mask.dir/create_mask.cpp.o
+Linking CXX executable ../../bin/cpp-example-convexhull
+[ 79%] Built target example_convexhull
+Scanning dependencies of target example_dbt_face_detection
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_dbt_face_detection.dir/dbt_face_detection.cpp.o
+Linking CXX executable ../../bin/cpp-example-cout_mat
+[ 79%] Built target example_cout_mat
+Scanning dependencies of target example_delaunay2
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_delaunay2.dir/delaunay2.cpp.o
+Linking CXX executable ../../bin/cpp-example-create_mask
+[ 79%] Built target example_create_mask
+Scanning dependencies of target example_demhist
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_demhist.dir/demhist.cpp.o
+Linking CXX executable ../../bin/cpp-example-dbt_face_detection
+[ 79%] Built target example_dbt_face_detection
+Scanning dependencies of target example_dft
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_dft.dir/dft.cpp.o
+Linking CXX executable ../../bin/cpp-example-delaunay2
+[ 79%] Built target example_delaunay2
+Scanning dependencies of target example_distrans
+Linking CXX executable ../../bin/cpp-example-demhist
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_distrans.dir/distrans.cpp.o
+[ 79%] Built target example_demhist
+Scanning dependencies of target example_drawing
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_drawing.dir/drawing.cpp.o
+Linking CXX executable ../../bin/cpp-example-dft
+[ 79%] Built target example_dft
+Scanning dependencies of target example_edge
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_edge.dir/edge.cpp.o
+Linking CXX executable ../../bin/cpp-example-distrans
+[ 79%] Built target example_distrans
+Scanning dependencies of target example_em
+Linking CXX executable ../../bin/cpp-example-drawing
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_em.dir/em.cpp.o
+[ 79%] Built target example_drawing
+Scanning dependencies of target example_facedetect
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_facedetect.dir/facedetect.cpp.o
+Linking CXX executable ../../bin/cpp-example-edge
+[ 79%] Built target example_edge
+Scanning dependencies of target example_fback
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_fback.dir/fback.cpp.o
+Linking CXX executable ../../bin/cpp-example-em
+[ 79%] Built target example_em
+Scanning dependencies of target example_ffilldemo
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_ffilldemo.dir/ffilldemo.cpp.o
+Linking CXX executable ../../bin/cpp-example-fback
+Linking CXX executable ../../bin/cpp-example-facedetect
+[ 79%] Built target example_fback
+Scanning dependencies of target example_filestorage
+[ 79%] Built target example_facedetect
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_filestorage.dir/filestorage.cpp.o
+Scanning dependencies of target example_fitellipse
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_fitellipse.dir/fitellipse.cpp.o
+Linking CXX executable ../../bin/cpp-example-ffilldemo
+[ 79%] Built target example_ffilldemo
+Scanning dependencies of target example_grabcut
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_grabcut.dir/grabcut.cpp.o
+Linking CXX executable ../../bin/cpp-example-filestorage
+Linking CXX executable ../../bin/cpp-example-fitellipse
+[ 79%] Built target example_filestorage
+Scanning dependencies of target example_houghcircles
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_houghcircles.dir/houghcircles.cpp.o
+[ 79%] Built target example_fitellipse
+Scanning dependencies of target example_houghlines
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_houghlines.dir/houghlines.cpp.o
+Linking CXX executable ../../bin/cpp-example-grabcut
+[ 79%] Built target example_grabcut
+Scanning dependencies of target example_image
+Linking CXX executable ../../bin/cpp-example-houghcircles
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_image.dir/image.cpp.o
+Linking CXX executable ../../bin/cpp-example-houghlines
+[ 79%] Built target example_houghcircles
+Scanning dependencies of target example_image_alignment
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_image_alignment.dir/image_alignment.cpp.o
+[ 79%] Built target example_houghlines
+Scanning dependencies of target example_image_sequence
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_image_sequence.dir/image_sequence.cpp.o
+Linking CXX executable ../../bin/cpp-example-image
+Linking CXX executable ../../bin/cpp-example-image_sequence
+[ 79%] Built target example_image
+Scanning dependencies of target example_imagelist_creator
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_imagelist_creator.dir/imagelist_creator.cpp.o
+[ 79%] Built target example_image_sequence
+Scanning dependencies of target example_inpaint
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_inpaint.dir/inpaint.cpp.o
+Linking CXX executable ../../bin/cpp-example-image_alignment
+[ 79%] Built target example_image_alignment
+Scanning dependencies of target example_intelperc_capture
+Linking CXX executable ../../bin/cpp-example-imagelist_creator
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_intelperc_capture.dir/intelperc_capture.cpp.o
+[ 79%] Built target example_imagelist_creator
+Scanning dependencies of target example_kalman
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_kalman.dir/kalman.cpp.o
+Linking CXX executable ../../bin/cpp-example-inpaint
+[ 79%] Built target example_inpaint
+Scanning dependencies of target example_kmeans
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_kmeans.dir/kmeans.cpp.o
+Linking CXX executable ../../bin/cpp-example-intelperc_capture
+[ 79%] Built target example_intelperc_capture
+Linking CXX executable ../../bin/cpp-example-kmeans
+Scanning dependencies of target example_laplace
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_laplace.dir/laplace.cpp.o
+[ 79%] Built target example_kmeans
+Scanning dependencies of target example_letter_recog
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_letter_recog.dir/letter_recog.cpp.o
+Linking CXX executable ../../bin/cpp-example-kalman
+[ 79%] Built target example_kalman
+Scanning dependencies of target example_lkdemo
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_lkdemo.dir/lkdemo.cpp.o
+Linking CXX executable ../../bin/cpp-example-laplace
+[ 79%] Built target example_laplace
+Scanning dependencies of target example_logistic_regression
+[ 79%] Building CXX object samples/cpp/CMakeFiles/example_logistic_regression.dir/logistic_regression.cpp.o
+Linking CXX executable ../../bin/cpp-example-lkdemo
+[ 79%] Built target example_lkdemo
+Scanning dependencies of target example_lsd_lines
+[ 83%] Building CXX object samples/cpp/CMakeFiles/example_lsd_lines.dir/lsd_lines.cpp.o
+Linking CXX executable ../../bin/cpp-example-letter_recog
+[ 83%] Built target example_letter_recog
+Scanning dependencies of target example_minarea
+[ 83%] Building CXX object samples/cpp/CMakeFiles/example_minarea.dir/minarea.cpp.o
+Linking CXX executable ../../bin/cpp-example-logistic_regression
+[ 83%] Built target example_logistic_regression
+Scanning dependencies of target example_morphology2
+[ 83%] Building CXX object samples/cpp/CMakeFiles/example_morphology2.dir/morphology2.cpp.o
+Linking CXX executable ../../bin/cpp-example-lsd_lines
+[ 83%] Built target example_lsd_lines
+Scanning dependencies of target example_npr_demo
+[ 83%] Building CXX object samples/cpp/CMakeFiles/example_npr_demo.dir/npr_demo.cpp.o
+Linking CXX executable ../../bin/cpp-example-minarea
+[ 83%] Built target example_minarea
+Scanning dependencies of target example_opencv_version
+[ 83%] Building CXX object samples/cpp/CMakeFiles/example_opencv_version.dir/opencv_version.cpp.o
+Linking CXX executable ../../bin/cpp-example-morphology2
+[ 83%] Built target example_morphology2
+Scanning dependencies of target example_openni_capture
+[ 83%] Building CXX object samples/cpp/CMakeFiles/example_openni_capture.dir/openni_capture.cpp.o
+Linking CXX executable ../../bin/cpp-example-npr_demo
+[ 83%] Built target example_npr_demo
+Scanning dependencies of target example_pca
+Linking CXX executable ../../bin/cpp-example-opencv_version
+[ 83%] Building CXX object samples/cpp/CMakeFiles/example_pca.dir/pca.cpp.o
+[ 83%] Built target example_opencv_version
+Scanning dependencies of target example_phase_corr
+[ 83%] Building CXX object samples/cpp/CMakeFiles/example_phase_corr.dir/phase_corr.cpp.o
+Linking CXX executable ../../bin/cpp-example-openni_capture
+[ 83%] Built target example_openni_capture
+Scanning dependencies of target example_points_classifier
+[ 83%] Building CXX object samples/cpp/CMakeFiles/example_points_classifier.dir/points_classifier.cpp.o
+Linking CXX executable ../../bin/cpp-example-phase_corr
+[ 83%] Built target example_phase_corr
+Scanning dependencies of target example_polar_transforms
+[ 83%] Building CXX object samples/cpp/CMakeFiles/example_polar_transforms.dir/polar_transforms.cpp.o
+Linking CXX executable ../../bin/cpp-example-pca
+[ 83%] Built target example_pca
+Scanning dependencies of target example_segment_objects
+[ 83%] Building CXX object samples/cpp/CMakeFiles/example_segment_objects.dir/segment_objects.cpp.o
+Linking CXX executable ../../bin/cpp-example-polar_transforms
+[ 83%] Built target example_polar_transforms
+Scanning dependencies of target example_select3dobj
+[ 83%] Building CXX object samples/cpp/CMakeFiles/example_select3dobj.dir/select3dobj.cpp.o
+Linking CXX executable ../../bin/cpp-example-points_classifier
+Linking CXX executable ../../bin/cpp-example-segment_objects
+[ 83%] Built target example_points_classifier
+Scanning dependencies of target example_shape_example
+[ 83%] Building CXX object samples/cpp/CMakeFiles/example_shape_example.dir/shape_example.cpp.o
+[ 83%] Built target example_segment_objects
+Scanning dependencies of target example_smiledetect
+[ 83%] Building CXX object samples/cpp/CMakeFiles/example_smiledetect.dir/smiledetect.cpp.o
+Linking CXX executable ../../bin/cpp-example-shape_example
+Linking CXX executable ../../bin/cpp-example-smiledetect
+[ 83%] Built target example_shape_example
+Scanning dependencies of target example_squares
+[ 83%] Building CXX object samples/cpp/CMakeFiles/example_squares.dir/squares.cpp.o
+[ 83%] Built target example_smiledetect
+Scanning dependencies of target example_starter_imagelist
+[ 83%] Building CXX object samples/cpp/CMakeFiles/example_starter_imagelist.dir/starter_imagelist.cpp.o
+Linking CXX executable ../../bin/cpp-example-starter_imagelist
+Linking CXX executable ../../bin/cpp-example-squares
+[ 83%] Built target example_starter_imagelist
+[ 83%] Built target example_squares
+Scanning dependencies of target example_starter_video
+Scanning dependencies of target example_stereo_calib
+Linking CXX executable ../../bin/cpp-example-select3dobj
+[ 83%] Building CXX object samples/cpp/CMakeFiles/example_starter_video.dir/starter_video.cpp.o
+[ 83%] Building CXX object samples/cpp/CMakeFiles/example_stereo_calib.dir/stereo_calib.cpp.o
+[ 83%] Built target example_select3dobj
+Scanning dependencies of target example_stereo_match
+[ 83%] Building CXX object samples/cpp/CMakeFiles/example_stereo_match.dir/stereo_match.cpp.o
+Linking CXX shared library ../../lib/cv2.so
+Linking CXX executable ../../bin/cpp-example-starter_video
+[ 83%] Built target opencv_python2
+Scanning dependencies of target example_stitching
+[ 83%] Building CXX object samples/cpp/CMakeFiles/example_stitching.dir/stitching.cpp.o
+[ 83%] Built target example_starter_video
+Scanning dependencies of target example_stitching_detailed
+[ 83%] Building CXX object samples/cpp/CMakeFiles/example_stitching_detailed.dir/stitching_detailed.cpp.o
+Linking CXX executable ../../bin/cpp-example-stereo_match
+[ 83%] Built target example_stereo_match
+Scanning dependencies of target example_train_HOG
+[ 83%] Building CXX object samples/cpp/CMakeFiles/example_train_HOG.dir/train_HOG.cpp.o
+Linking CXX executable ../../bin/cpp-example-stereo_calib
+[ 83%] Built target example_stereo_calib
+Scanning dependencies of target example_tree_engine
+[ 83%] Building CXX object samples/cpp/CMakeFiles/example_tree_engine.dir/tree_engine.cpp.o
+Linking CXX executable ../../bin/cpp-example-stitching
+[ 83%] Built target example_stitching
+Scanning dependencies of target example_tvl1_optical_flow
+[ 83%] Building CXX object samples/cpp/CMakeFiles/example_tvl1_optical_flow.dir/tvl1_optical_flow.cpp.o
+Linking CXX executable ../../bin/cpp-example-tree_engine
+Linking CXX executable ../../bin/cpp-example-train_HOG
+[ 83%] Built target example_tree_engine
+Scanning dependencies of target example_ufacedetect
+[ 83%] Building CXX object samples/cpp/CMakeFiles/example_ufacedetect.dir/ufacedetect.cpp.o
+[ 83%] Built target example_train_HOG
+Scanning dependencies of target example_videostab
+[ 83%] Building CXX object samples/cpp/CMakeFiles/example_videostab.dir/videostab.cpp.o
+Linking CXX executable ../../bin/cpp-example-tvl1_optical_flow
+[ 83%] Built target example_tvl1_optical_flow
+Scanning dependencies of target example_watershed
+[ 83%] Building CXX object samples/cpp/CMakeFiles/example_watershed.dir/watershed.cpp.o
+Linking CXX executable ../../bin/cpp-example-ufacedetect
+[ 83%] Built target example_ufacedetect
+Scanning dependencies of target tutorial_AKAZE_match
+[ 83%] Building CXX object samples/cpp/CMakeFiles/tutorial_AKAZE_match.dir/tutorial_code/features2D/AKAZE_match.cpp.o
+Linking CXX executable ../../bin/cpp-example-watershed
+[ 83%] Built target example_watershed
+Scanning dependencies of target tutorial_AddingImages
+[ 83%] Building CXX object samples/cpp/CMakeFiles/tutorial_AddingImages.dir/tutorial_code/ImgProc/AddingImages.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-AddingImages
+[ 83%] Built target tutorial_AddingImages
+Scanning dependencies of target tutorial_AddingImagesTrackbar
+[ 83%] Linking CXX executable ../../bin/cpp-tutorial-AKAZE_match
+Building CXX object samples/cpp/CMakeFiles/tutorial_AddingImagesTrackbar.dir/tutorial_code/HighGUI/AddingImagesTrackbar.cpp.o
+Linking CXX executable ../../bin/cpp-example-videostab
+[ 83%] Built target tutorial_AKAZE_match
+Scanning dependencies of target tutorial_BasicLinearTransforms
+[ 83%] Building CXX object samples/cpp/CMakeFiles/tutorial_BasicLinearTransforms.dir/tutorial_code/ImgProc/BasicLinearTransforms.cpp.o
+[ 83%] Built target example_videostab
+Scanning dependencies of target tutorial_BasicLinearTransformsTrackbar
+[ 83%] Building CXX object samples/cpp/CMakeFiles/tutorial_BasicLinearTransformsTrackbar.dir/tutorial_code/HighGUI/BasicLinearTransformsTrackbar.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-AddingImagesTrackbar
+Linking CXX executable ../../bin/cpp-example-stitching_detailed
+[ 83%] Built target tutorial_AddingImagesTrackbar
+Scanning dependencies of target tutorial_CannyDetector_Demo
+Linking CXX executable ../../bin/cpp-tutorial-BasicLinearTransforms
+[ 83%] Building CXX object samples/cpp/CMakeFiles/tutorial_CannyDetector_Demo.dir/tutorial_code/ImgTrans/CannyDetector_Demo.cpp.o
+[ 83%] Built target example_stitching_detailed
+Scanning dependencies of target tutorial_Drawing_1
+[ 83%] Building CXX object samples/cpp/CMakeFiles/tutorial_Drawing_1.dir/tutorial_code/core/Matrix/Drawing_1.cpp.o
+[ 83%] Built target tutorial_BasicLinearTransforms
+Scanning dependencies of target tutorial_Drawing_2
+Linking CXX executable ../../bin/cpp-tutorial-BasicLinearTransformsTrackbar
+[ 83%] Building CXX object samples/cpp/CMakeFiles/tutorial_Drawing_2.dir/tutorial_code/core/Matrix/Drawing_2.cpp.o
+[ 83%] Built target tutorial_BasicLinearTransformsTrackbar
+Scanning dependencies of target tutorial_EqualizeHist_Demo
+[ 83%] Building CXX object samples/cpp/CMakeFiles/tutorial_EqualizeHist_Demo.dir/tutorial_code/Histograms_Matching/EqualizeHist_Demo.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-CannyDetector_Demo
+[ 83%] Built target tutorial_CannyDetector_Demo
+Scanning dependencies of target tutorial_Geometric_Transforms_Demo
+[ 83%] Building CXX object samples/cpp/CMakeFiles/tutorial_Geometric_Transforms_Demo.dir/tutorial_code/ImgTrans/Geometric_Transforms_Demo.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-Drawing_1
+Linking CXX executable ../../bin/cpp-tutorial-EqualizeHist_Demo
+[ 83%] Built target tutorial_Drawing_1
+Scanning dependencies of target tutorial_HoughCircle_Demo
+[ 83%] Building CXX object samples/cpp/CMakeFiles/tutorial_HoughCircle_Demo.dir/tutorial_code/ImgTrans/HoughCircle_Demo.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-Drawing_2
+[ 83%] Built target tutorial_EqualizeHist_Demo
+Scanning dependencies of target tutorial_HoughLines_Demo
+[ 83%] Building CXX object samples/cpp/CMakeFiles/tutorial_HoughLines_Demo.dir/tutorial_code/ImgTrans/HoughLines_Demo.cpp.o
+[ 83%] Built target tutorial_Drawing_2
+Scanning dependencies of target tutorial_Laplace_Demo
+[ 83%] Building CXX object samples/cpp/CMakeFiles/tutorial_Laplace_Demo.dir/tutorial_code/ImgTrans/Laplace_Demo.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-Geometric_Transforms_Demo
+[ 83%] Built target tutorial_Geometric_Transforms_Demo
+Scanning dependencies of target tutorial_MatchTemplate_Demo
+[ 83%] Building CXX object samples/cpp/CMakeFiles/tutorial_MatchTemplate_Demo.dir/tutorial_code/Histograms_Matching/MatchTemplate_Demo.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-HoughCircle_Demo
+Linking CXX executable ../../bin/cpp-tutorial-HoughLines_Demo
+[ 83%] Built target tutorial_HoughCircle_Demo
+Scanning dependencies of target tutorial_Morphology_1
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_Morphology_1.dir/tutorial_code/ImgProc/Morphology_1.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-Laplace_Demo
+[ 87%] Built target tutorial_HoughLines_Demo
+Scanning dependencies of target tutorial_Morphology_2
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_Morphology_2.dir/tutorial_code/ImgProc/Morphology_2.cpp.o
+[ 87%] Built target tutorial_Laplace_Demo
+Scanning dependencies of target tutorial_Pyramids
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_Pyramids.dir/tutorial_code/ImgProc/Pyramids.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-MatchTemplate_Demo
+[ 87%] Built target tutorial_MatchTemplate_Demo
+Scanning dependencies of target tutorial_Remap_Demo
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_Remap_Demo.dir/tutorial_code/ImgTrans/Remap_Demo.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-Morphology_1
+Linking CXX executable ../../bin/cpp-tutorial-Morphology_2
+[ 87%] Built target tutorial_Morphology_1
+Scanning dependencies of target tutorial_SBM_Sample
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_SBM_Sample.dir/tutorial_code/calib3d/stereoBM/SBM_Sample.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-Pyramids
+[ 87%] Built target tutorial_Morphology_2
+Scanning dependencies of target tutorial_Smoothing
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_Smoothing.dir/tutorial_code/ImgProc/Smoothing.cpp.o
+[ 87%] Built target tutorial_Pyramids
+Scanning dependencies of target tutorial_Sobel_Demo
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_Sobel_Demo.dir/tutorial_code/ImgTrans/Sobel_Demo.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-Remap_Demo
+[ 87%] Built target tutorial_Remap_Demo
+Scanning dependencies of target tutorial_Threshold
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_Threshold.dir/tutorial_code/ImgProc/Threshold.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-SBM_Sample
+[ 87%] Built target tutorial_SBM_Sample
+Linking CXX executable ../../bin/cpp-tutorial-Smoothing
+Scanning dependencies of target tutorial_bg_sub
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_bg_sub.dir/tutorial_code/video/bg_sub.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-Sobel_Demo
+[ 87%] Built target tutorial_Smoothing
+Scanning dependencies of target tutorial_calcBackProject_Demo1
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_calcBackProject_Demo1.dir/tutorial_code/Histograms_Matching/calcBackProject_Demo1.cpp.o
+[ 87%] Built target tutorial_Sobel_Demo
+Scanning dependencies of target tutorial_calcBackProject_Demo2
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_calcBackProject_Demo2.dir/tutorial_code/Histograms_Matching/calcBackProject_Demo2.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-Threshold
+[ 87%] Built target tutorial_Threshold
+Scanning dependencies of target tutorial_calcHist_Demo
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_calcHist_Demo.dir/tutorial_code/Histograms_Matching/calcHist_Demo.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-calcBackProject_Demo1
+Linking CXX executable ../../bin/cpp-tutorial-calcBackProject_Demo2
+Linking CXX executable ../../bin/cpp-tutorial-bg_sub
+[ 87%] Built target tutorial_calcBackProject_Demo1
+Scanning dependencies of target tutorial_camera_calibration
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_camera_calibration.dir/tutorial_code/calib3d/camera_calibration/camera_calibration.cpp.o
+[ 87%] Built target tutorial_calcBackProject_Demo2
+Scanning dependencies of target tutorial_cloning_demo
+[ 87%] Built target tutorial_bg_sub
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_cloning_demo.dir/tutorial_code/photo/seamless_cloning/cloning_demo.cpp.o
+Scanning dependencies of target tutorial_cloning_gui
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_cloning_gui.dir/tutorial_code/photo/seamless_cloning/cloning_gui.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-calcHist_Demo
+[ 87%] Built target tutorial_calcHist_Demo
+Scanning dependencies of target tutorial_compareHist_Demo
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_compareHist_Demo.dir/tutorial_code/Histograms_Matching/compareHist_Demo.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-cloning_demo
+[ 87%] Built target tutorial_cloning_demo
+Scanning dependencies of target tutorial_copyMakeBorder_demo
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_copyMakeBorder_demo.dir/tutorial_code/ImgTrans/copyMakeBorder_demo.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-compareHist_Demo
+[ 87%] Built target tutorial_compareHist_Demo
+Scanning dependencies of target tutorial_cornerDetector_Demo
+Linking CXX executable ../../bin/cpp-tutorial-cloning_gui
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_cornerDetector_Demo.dir/tutorial_code/TrackingMotion/cornerDetector_Demo.cpp.o
+[ 87%] Built target tutorial_cloning_gui
+Scanning dependencies of target tutorial_cornerHarris_Demo
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_cornerHarris_Demo.dir/tutorial_code/TrackingMotion/cornerHarris_Demo.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-copyMakeBorder_demo
+[ 87%] Built target tutorial_copyMakeBorder_demo
+Scanning dependencies of target tutorial_cornerSubPix_Demo
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_cornerSubPix_Demo.dir/tutorial_code/TrackingMotion/cornerSubPix_Demo.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-cornerDetector_Demo
+Linking CXX executable ../../bin/cpp-tutorial-cornerHarris_Demo
+[ 87%] Built target tutorial_cornerDetector_Demo
+Scanning dependencies of target tutorial_decolor
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_decolor.dir/tutorial_code/photo/decolorization/decolor.cpp.o
+[ 87%] Built target tutorial_cornerHarris_Demo
+Linking CXX executable ../../bin/cpp-tutorial-camera_calibration
+Scanning dependencies of target tutorial_discrete_fourier_transform
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_discrete_fourier_transform.dir/tutorial_code/core/discrete_fourier_transform/discrete_fourier_transform.cpp.o
+[ 87%] Built target tutorial_camera_calibration
+Scanning dependencies of target tutorial_display_image
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_display_image.dir/tutorial_code/introduction/display_image/display_image.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-cornerSubPix_Demo
+[ 87%] Built target tutorial_cornerSubPix_Demo
+Scanning dependencies of target tutorial_file_input_output
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_file_input_output.dir/tutorial_code/core/file_input_output/file_input_output.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-decolor
+[ 87%] Built target tutorial_decolor
+Scanning dependencies of target tutorial_filter2D_demo
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_filter2D_demo.dir/tutorial_code/ImgTrans/filter2D_demo.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-discrete_fourier_transform
+Linking CXX executable ../../bin/cpp-tutorial-display_image
+[ 87%] Built target tutorial_discrete_fourier_transform
+Scanning dependencies of target tutorial_findContours_demo
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_findContours_demo.dir/tutorial_code/ShapeDescriptors/findContours_demo.cpp.o
+[ 87%] Built target tutorial_display_image
+Scanning dependencies of target tutorial_gdal-image
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_gdal-image.dir/tutorial_code/HighGUI/GDAL_IO/gdal-image.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-file_input_output
+[ 87%] Built target tutorial_file_input_output
+Scanning dependencies of target tutorial_generalContours_demo1
+Linking CXX executable ../../bin/cpp-tutorial-filter2D_demo
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_generalContours_demo1.dir/tutorial_code/ShapeDescriptors/generalContours_demo1.cpp.o
+[ 87%] Built target tutorial_filter2D_demo
+Scanning dependencies of target tutorial_generalContours_demo2
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_generalContours_demo2.dir/tutorial_code/ShapeDescriptors/generalContours_demo2.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-findContours_demo
+Linking CXX executable ../../bin/cpp-tutorial-gdal-image
+[ 87%] Built target tutorial_gdal-image
+[ 87%] Built target tutorial_findContours_demo
+Scanning dependencies of target tutorial_goodFeaturesToTrack_Demo
+Scanning dependencies of target tutorial_hdr_imaging
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_hdr_imaging.dir/tutorial_code/photo/hdr_imaging/hdr_imaging.cpp.o
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_goodFeaturesToTrack_Demo.dir/tutorial_code/TrackingMotion/goodFeaturesToTrack_Demo.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-generalContours_demo1
+[ 87%] Built target tutorial_generalContours_demo1
+Scanning dependencies of target tutorial_how_to_scan_images
+Linking CXX executable ../../bin/cpp-tutorial-generalContours_demo2
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_how_to_scan_images.dir/tutorial_code/core/how_to_scan_images/how_to_scan_images.cpp.o
+[ 87%] Built target tutorial_generalContours_demo2
+Scanning dependencies of target tutorial_hull_demo
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_hull_demo.dir/tutorial_code/ShapeDescriptors/hull_demo.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-goodFeaturesToTrack_Demo
+[ 87%] Built target tutorial_goodFeaturesToTrack_Demo
+Linking CXX executable ../../bin/cpp-tutorial-hdr_imaging
+Scanning dependencies of target tutorial_interoperability_with_OpenCV_1
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_interoperability_with_OpenCV_1.dir/tutorial_code/core/interoperability_with_OpenCV_1/interoperability_with_OpenCV_1.cpp.o
+[ 87%] Built target tutorial_hdr_imaging
+Scanning dependencies of target tutorial_introduction_to_svm
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_introduction_to_svm.dir/tutorial_code/ml/introduction_to_svm/introduction_to_svm.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-hull_demo
+Linking CXX executable ../../bin/cpp-tutorial-how_to_scan_images
+[ 87%] Built target tutorial_how_to_scan_images
+Scanning dependencies of target tutorial_introduction_windows_vs
+[ 87%] Built target tutorial_hull_demo
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_introduction_windows_vs.dir/tutorial_code/introduction/windows_visual_studio_Opencv/introduction_windows_vs.cpp.o
+Scanning dependencies of target tutorial_mat_mask_operations
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_mat_mask_operations.dir/tutorial_code/core/mat_mask_operations/mat_mask_operations.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-interoperability_with_OpenCV_1
+[ 87%] Built target tutorial_interoperability_with_OpenCV_1
+Scanning dependencies of target tutorial_mat_the_basic_image_container
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_mat_the_basic_image_container.dir/tutorial_code/core/mat_the_basic_image_container/mat_the_basic_image_container.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-introduction_to_svm
+[ 87%] Built target tutorial_introduction_to_svm
+Scanning dependencies of target tutorial_moments_demo
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_moments_demo.dir/tutorial_code/ShapeDescriptors/moments_demo.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-introduction_windows_vs
+[ 87%] Built target tutorial_introduction_windows_vs
+Scanning dependencies of target tutorial_non_linear_svms
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_non_linear_svms.dir/tutorial_code/ml/non_linear_svms/non_linear_svms.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-mat_mask_operations
+[ 87%] Built target tutorial_mat_mask_operations
+Scanning dependencies of target tutorial_npr_demo
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_npr_demo.dir/tutorial_code/photo/non_photorealistic_rendering/npr_demo.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-mat_the_basic_image_container
+[ 87%] Built target tutorial_mat_the_basic_image_container
+Scanning dependencies of target tutorial_objectDetection
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_objectDetection.dir/tutorial_code/objectDetection/objectDetection.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-moments_demo
+[ 87%] Built target tutorial_moments_demo
+Scanning dependencies of target tutorial_objectDetection2
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_objectDetection2.dir/tutorial_code/objectDetection/objectDetection2.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-npr_demo
+[ 87%] Built target tutorial_npr_demo
+Linking CXX executable ../../bin/cpp-tutorial-non_linear_svms
+Linking CXX executable ../../bin/cpp-tutorial-objectDetection
+Scanning dependencies of target tutorial_planar_tracking
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_planar_tracking.dir/tutorial_code/features2D/AKAZE_tracking/planar_tracking.cpp.o
+[ 87%] Built target tutorial_non_linear_svms
+Scanning dependencies of target tutorial_pointPolygonTest_demo
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_pointPolygonTest_demo.dir/tutorial_code/ShapeDescriptors/pointPolygonTest_demo.cpp.o
+[ 87%] Built target tutorial_objectDetection
+Scanning dependencies of target tutorial_video-input-psnr-ssim
+[ 87%] Building CXX object samples/cpp/CMakeFiles/tutorial_video-input-psnr-ssim.dir/tutorial_code/HighGUI/video-input-psnr-ssim/video-input-psnr-ssim.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-objectDetection2
+[ 87%] Built target tutorial_objectDetection2
+Scanning dependencies of target tutorial_video-write
+[ 91%] Building CXX object samples/cpp/CMakeFiles/tutorial_video-write.dir/tutorial_code/HighGUI/video-write/video-write.cpp.o
+Linking CXX executable ../../bin/cpp-tutorial-pointPolygonTest_demo
+[ 91%] Built target tutorial_pointPolygonTest_demo
+Scanning dependencies of target opencv_test_java
+[ 91%] Copying the OpenCV jar
+[ 91%] Copying res/values/strings.xml
+[ 91%] Copying res/raw/lbpcascade_frontalface.xml
+[ 91%] Copying res/drawable/icon.png
+[ 91%] Copying res/drawable/chessboard.jpg
+[ 91%] Copying res/drawable/lena.png
+[ 91%] Copying res/layout/main.xml
+[ 91%] Copying src/org/opencv/test/photo/PhotoTest.java
+[ 91%] Copying src/org/opencv/test/video/VideoTest.java
+[ 91%] Copying src/org/opencv/test/video/KalmanFilterTest.java
+[ 91%] Copying src/org/opencv/test/video/BackgroundSubtractorMOGTest.java
+[ 91%] Copying src/org/opencv/test/utils/ConvertersTest.java
+Linking CXX executable ../../bin/cpp-tutorial-video-write
+[ 91%] Copying src/org/opencv/test/imgproc/MomentsTest.java
+[ 91%] Copying src/org/opencv/test/imgproc/ImgprocTest.java
+[ 91%] Copying src/org/opencv/test/imgproc/Subdiv2DTest.java
+[ 91%] Copying src/org/opencv/test/objdetect/CascadeClassifierTest.java
+[ 91%] Copying src/org/opencv/test/objdetect/HOGDescriptorTest.java
+[ 91%] Copying src/org/opencv/test/objdetect/ObjdetectTest.java
+[ 91%] Copying src/org/opencv/test/highgui/HighguiTest.java
+[ 91%] Copying src/org/opencv/test/highgui/VideoCaptureTest.java
+[ 91%] Copying src/org/opencv/test/core/CoreTest.java
+[ 91%] Copying src/org/opencv/test/core/SizeTest.java
+[ 91%] Copying src/org/opencv/test/core/RangeTest.java
+[ 95%] Copying src/org/opencv/test/core/PointTest.java
+[ 95%] Copying src/org/opencv/test/core/CvTypeTest.java
+[ 95%] Copying src/org/opencv/test/core/ScalarTest.java
+Linking CXX executable ../../bin/cpp-tutorial-video-input-psnr-ssim
+[ 95%] Copying src/org/opencv/test/core/RectTest.java
+[ 95%] Copying src/org/opencv/test/core/Point3Test.java
+[ 95%] Copying src/org/opencv/test/core/RotatedRectTest.java
+[ 95%] Built target tutorial_video-write
+[ 95%] [ 95%] Copying src/org/opencv/test/core/DMatchTest.java
+Copying src/org/opencv/test/core/MatTest.java
+[ 95%] [ 95%] Copying src/org/opencv/test/core/TermCriteriaTest.java
+Copying src/org/opencv/test/core/KeyPointTest.java
+[ 95%] Copying src/org/opencv/test/calib3d/StereoSGBMTest.java
+[ 95%] [ 95%] Copying src/org/opencv/test/calib3d/StereoBMTest.java
+Copying src/org/opencv/test/calib3d/Calib3dTest.java
+[ 95%] Copying src/org/opencv/test/features2d/PyramidSIFTFeatureDetectorTest.java
+[ 95%] [ 95%] Copying src/org/opencv/test/features2d/PyramidDENSEFeatureDetectorTest.java
+Copying src/org/opencv/test/features2d/SURFDescriptorExtractorTest.java
+[ 95%] Copying src/org/opencv/test/features2d/FernGenericDescriptorMatcherTest.java
+[ 95%] [ 95%] Copying src/org/opencv/test/features2d/GridSURFFeatureDetectorTest.java
+Copying src/org/opencv/test/features2d/DynamicDENSEFeatureDetectorTest.java
+[ 95%] Copying src/org/opencv/test/features2d/PyramidGFTTFeatureDetectorTest.java
+[ 95%] Copying src/org/opencv/test/features2d/GridHARRISFeatureDetectorTest.java
+[ 95%] [ 95%] Copying src/org/opencv/test/features2d/GridORBFeatureDetectorTest.java
+Copying src/org/opencv/test/features2d/BruteForceSL2DescriptorMatcherTest.java
+[ 95%] [ 95%] Copying src/org/opencv/test/features2d/DynamicORBFeatureDetectorTest.java
+Copying src/org/opencv/test/features2d/DynamicMSERFeatureDetectorTest.java
+[ 95%] [ 95%] Copying src/org/opencv/test/features2d/PyramidMSERFeatureDetectorTest.java
+Copying src/org/opencv/test/features2d/STARFeatureDetectorTest.java
+[ 95%] Copying src/org/opencv/test/features2d/OpponentSURFDescriptorExtractorTest.java
+[ 95%] [ 95%] Copying src/org/opencv/test/features2d/DynamicHARRISFeatureDetectorTest.java
+Copying src/org/opencv/test/features2d/PyramidSIMPLEBLOBFeatureDetectorTest.java
+[ 95%] Copying src/org/opencv/test/features2d/PyramidHARRISFeatureDetectorTest.java
+[ 95%] Copying src/org/opencv/test/features2d/OneWayGenericDescriptorMatcherTest.java
+[ 95%] [ 95%] Copying src/org/opencv/test/features2d/GridDENSEFeatureDetectorTest.java
+Copying src/org/opencv/test/features2d/OpponentBRIEFDescriptorExtractorTest.java
+[ 95%] [ 95%] Copying src/org/opencv/test/features2d/ORBFeatureDetectorTest.java
+Copying src/org/opencv/test/features2d/DynamicSIFTFeatureDetectorTest.java
+[ 95%] Copying src/org/opencv/test/features2d/ORBDescriptorExtractorTest.java
+[ 95%] Copying src/org/opencv/test/features2d/BruteForceDescriptorMatcherTest.java
+[ 95%] Copying src/org/opencv/test/features2d/SIFTDescriptorExtractorTest.java
+[ 95%] [ 95%] Copying src/org/opencv/test/features2d/BruteForceHammingDescriptorMatcherTest.java
+Copying src/org/opencv/test/features2d/PyramidORBFeatureDetectorTest.java
+[ 95%] Copying src/org/opencv/test/features2d/SIMPLEBLOBFeatureDetectorTest.java
+[ 95%] [ 95%] Copying src/org/opencv/test/features2d/Features2dTest.java
+Copying src/org/opencv/test/features2d/OpponentORBDescriptorExtractorTest.java
+[ 95%] [ 95%] Copying src/org/opencv/test/features2d/GFTTFeatureDetectorTest.java
+Copying src/org/opencv/test/features2d/DynamicGFTTFeatureDetectorTest.java
+[ 95%] [100%] Copying src/org/opencv/test/features2d/DynamicFASTFeatureDetectorTest.java
+Copying src/org/opencv/test/features2d/SURFFeatureDetectorTest.java
+[100%] [100%] Copying src/org/opencv/test/features2d/GridGFTTFeatureDetectorTest.java
+Copying src/org/opencv/test/features2d/GridFASTFeatureDetectorTest.java
+[100%] [100%] Copying src/org/opencv/test/features2d/MSERFeatureDetectorTest.java
+Copying src/org/opencv/test/features2d/PyramidSTARFeatureDetectorTest.java
+[100%] Built target tutorial_video-input-psnr-ssim
+[100%] [100%] [100%] Copying src/org/opencv/test/features2d/PyramidSURFFeatureDetectorTest.java
+Copying src/org/opencv/test/features2d/GridSIFTFeatureDetectorTest.java
+Copying src/org/opencv/test/features2d/BruteForceL1DescriptorMatcherTest.java
+[100%] [100%] Copying src/org/opencv/test/features2d/GridMSERFeatureDetectorTest.java
+Copying src/org/opencv/test/features2d/DynamicSIMPLEBLOBFeatureDetectorTest.java
+[100%] [100%] Copying src/org/opencv/test/features2d/DynamicSURFFeatureDetectorTest.java
+[100%] Copying src/org/opencv/test/features2d/DynamicSTARFeatureDetectorTest.java
+Copying src/org/opencv/test/features2d/GridSTARFeatureDetectorTest.java
+[100%] [100%] Copying src/org/opencv/test/features2d/GridSIMPLEBLOBFeatureDetectorTest.java
+[100%] Copying src/org/opencv/test/features2d/FASTFeatureDetectorTest.java
+Copying src/org/opencv/test/features2d/BruteForceHammingLUTDescriptorMatcherTest.java
+[100%] Copying src/org/opencv/test/features2d/OpponentSIFTDescriptorExtractorTest.java
+[100%] [100%] Copying src/org/opencv/test/features2d/FlannBasedDescriptorMatcherTest.java
+Copying src/org/opencv/test/features2d/BRIEFDescriptorExtractorTest.java
+[100%] Copying src/org/opencv/test/features2d/DENSEFeatureDetectorTest.java
+[100%] [100%] Copying src/org/opencv/test/features2d/HARRISFeatureDetectorTest.java
+[100%] Copying src/org/opencv/test/features2d/PyramidFASTFeatureDetectorTest.java
+Copying src/org/opencv/test/features2d/SIFTFeatureDetectorTest.java
+[100%] Copying src/org/opencv/test/OpenCVTestCase.java
+[100%] [100%] Copying src/org/opencv/test/OpenCVTestRunner.java
+Copying lib/junit-4.11.jar
+[100%] Copying build.xml
+[100%] Build Java tests
+Buildfile: /home/cobalt/opencv/build/modules/java/test/.build/build.xml
+Linking CXX executable ../../bin/cpp-tutorial-planar_tracking
+[100%] Built target tutorial_planar_tracking
+
+build:
+
+compile:
+    [mkdir] Created dir: /home/cobalt/opencv/build/modules/java/test/.build/build/classes
+    [javac] Compiling 88 source files to /home/cobalt/opencv/build/modules/java/test/.build/build/classes
+
+jar:
+    [mkdir] Created dir: /home/cobalt/opencv/build/modules/java/test/.build/build/jar
+      [jar] Building jar: /home/cobalt/opencv/build/modules/java/test/.build/build/jar/opencv-test.jar
+
+BUILD SUCCESSFUL
+Total time: 9 seconds
+[100%] Built target opencv_test_java
